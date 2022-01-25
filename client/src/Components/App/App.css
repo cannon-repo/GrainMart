@@ -13,5 +13,12 @@
 .GrainMart{
   width: 100%;
   background-color: var(--white);
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.Screen{
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
