@@ -1,0 +1,30 @@
+.CartWrap{
+    width: auto;
+    height: auto;
+    overflow: visible;
+    display: flex;
+    position: relative;
+    padding: 10px 0px;
+}
+
+.Cart{
+    font-size: 20px;
+    color: var(--white);
+}
+
+.CartBadge{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    background-color: var(--yellow);
+    color: var(--white);
+    border: 1px solid var(--white);
+    position: absolute;
+    bottom: 27px;
+    font-family: 'Quicksand';
+    left: 12px;
+}

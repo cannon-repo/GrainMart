@@ -1,0 +1,156 @@
+.Navbar {
+  width: 100%;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--green);
+  box-shadow: inset 0px 0px 10px 0px darkgreen;
+}
+
+.SearchBox {
+  width: 100%;
+  max-width: 400px;
+  min-width: 250px;
+  border-radius: 5px;
+  display: flex;
+  margin: 0px 20px;
+}
+
+.SearchBox input {
+  width: 100%;
+  height: 40px;
+  padding: 0px 10px;
+  font-size: 16px;
+  background-color: var(--white);
+  border: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.SearchBtn {
+  font-size: 22px;
+  color: var(--yellow);
+  width: 40px;
+  height: 40px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: none;
+  background-color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.NavLinks {
+  width: auto;
+  margin-left: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.NavLinks span {
+  color: var(--white);
+  font-size: 17px;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  font-weight: bold;
+}
+
+.More p {
+  transition: all 0.2s ease;
+  transform: translateY(3px);
+}
+
+.More:hover p {
+  transform: rotate(180deg) translateY(0px);
+}
+
+.NavLinks span:first-child {
+  margin-right: calc(2vw + 20px);
+}
+
+.NavLinks span:last-child {
+  margin-left: calc(2vw + 20px);
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 800px) {
+  .Navbar {
+    flex-wrap: wrap;
+  }
+  .LogoWrap {
+    order: 1;
+  }
+  .SearchBox {
+    order: 3;
+    margin: auto auto;
+  }
+  .NavLinks {
+    order: 2;
+  }
+}
+
+@media screen and (max-width: 385px) {
+  .LogoWrap {
+    margin: auto auto;
+  }
+  .NavLinks {
+    margin: auto auto;
+  }
+}
+
+.More {
+  position: relative;
+}
+
+.MoreWrap {
+  position: absolute;
+  width: 200px;
+  height: auto;
+  top: 100%;
+  visibility: hidden;
+}
+
+.MoreInfo {
+  border-radius: 3px;
+  background-color: var(--white);
+  box-shadow: 0px 0px 10px 0px gainsboro;
+}
+
+.MoreInfo section {
+  padding: 15px 10px;
+  font-weight: normal;
+  font-size: 14px;
+  color: #000;
+  transition: all 0.1s ease;
+}
+
+.MoreInfo section:first-child {
+  border-bottom: 1px solid gainsboro;
+}
+
+.MoreInfo section:hover {
+  background-color: rgb(240, 240, 240);
+}
+
+.MorePtr {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.Ptr {
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 20px solid var(--white);
+}
+
+.More:hover .MoreWrap{
+    visibility: visible;
+}
