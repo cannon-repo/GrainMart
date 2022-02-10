@@ -1,6 +1,142 @@
 .Home{
     width: 100%;
+}
+
+.HomeItemsWrap{
+    width: 100%;
     height: 100%;
     display: flex;
+    flex-wrap: wrap;
+    padding-top: 10px;
+}
+
+.SliderWrap{
+    min-width: 300px;
+    width: 60%;
+    flex-grow: 1;
+    display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.MainSlider{
+    width: 100%;
+    padding: 0px 5px 5px 5px;
+}
+
+.Slides{
+    width: 100%;
+}
+
+.Slides img{
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 3px;
+}
+
+.SecondSlider{
+    width: 100%;
+    height: 100%;
+    padding: 0px 5px 5px 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.SellWithUsWrap{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-height: 300px;
+    padding: 5px;
+    background-color: #fac800;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: inset 0px 0px 20px 0px rgb(255, 100, 0);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.SellWithUsWrap::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100%;
+    background-color: green;
+    z-index: 1;
+    transform: skewX(15deg) translateX(40px);
+    box-shadow: inset 0px 0px 20px 0px rgb(0, 70, 0);
+}
+
+.GrowWithUs{
+    width: 200px;
+    height: 200px;
+    background-image: url(../../Assets/Images/Banners/grow.png);
+    background-size: cover;
+    background-position: center center;
+    transform: translateX(-20px) translateY(20px);
+    z-index: 9;
+}
+
+.SellOnGrainMart{
+    width: 200px;
+    height: 200px;
+    background-image: url(../../Assets/Images/Banners/SellWithUs.png);
+    background-size: cover;
+    background-position: center center;
+    transform: translateY(8vw);
+    z-index: 9;
+}
+
+.BannerWrap{
+    min-width: 300px;
+    width: 40%;
+    min-height: 400px;
+    flex-grow: 1;
+    padding: 0px 0px 5px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.Banner{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.LargeBannerWrap, .SmallBannerWrap{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid gainsboro;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.SmallBannerWrap{
+    flex-direction: column;
+}
+
+.LargeBannerWrap img, .SmallBannerWrap img{
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.ItemSliderWrap{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    overflow: hidden;
+    margin: 20px 0px;
 }

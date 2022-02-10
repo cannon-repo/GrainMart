@@ -4,6 +4,7 @@ import {useWindowSize} from "../../Hooks/ResizeHook";
 import Navbar from '../Navbar/Navbar';
 import {Route, Routes} from "react-router-dom";
 import Home from '../Home/Home';
+import Footer from '../Footer/Footer';
 
 const App = () => {
   const [,height] = useWindowSize();

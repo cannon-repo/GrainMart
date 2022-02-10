@@ -3,7 +3,6 @@ import "./Categories.css";
 import { categories } from "../../Assets/Data/CategoryList";
 
 const Categories = () => {
-  console.log(categories);
   return (
     <div className="Categories">
       {categories.map((data, index) => {
