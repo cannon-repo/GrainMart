@@ -4,7 +4,7 @@ import {useWindowSize} from "../../Hooks/ResizeHook";
 import Navbar from '../Navbar/Navbar';
 import {Route, Routes} from "react-router-dom";
 import Home from '../Home/Home';
-import Footer from '../Footer/Footer';
+import Shop from "../Shop/Shop";
 
 const App = () => {
   const [,height] = useWindowSize();
@@ -14,6 +14,7 @@ const App = () => {
     <div className='Screen'>
       <Routes>
         <Route path="/" element={<Home/>}/>
+        <Route path="/shop" element={<Shop/>}/>
       </Routes>
     </div>
   </div>

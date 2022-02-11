@@ -1,0 +1,24 @@
+.SubCategoryOverlay{
+    width: 200px;
+    min-height: 50px;
+    background-color: #fff;
+    height: auto;
+    border-radius: 3px;
+    border: 1px solid gainsboro;
+}
+
+.EachSubCategory{
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid gainsboro;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0px 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.EachSubCategory:hover{
+    background-color: rgb(240,240,240);
+}

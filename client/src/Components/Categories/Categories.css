@@ -1,11 +1,13 @@
 .Categories{
+    position: relative;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 5px 10px;
-    overflow-x: scroll;
     box-shadow: 0px 0px 10px 0px #777;
+    flex-wrap: nowrap;
+    white-space: nowrap;
 }
 
 .Categories::-webkit-scrollbar{
@@ -19,6 +21,18 @@
     align-items: center;
     margin: 0px 40px;
     cursor: pointer;
+}
+
+.SubCategoryOverlayWrap{
+    display: none;
+    position: absolute;
+    top: 100%;
+    z-index: 9;
+    transform: translateX(-50px);
+}
+
+.EachCategoryItem:hover .SubCategoryOverlayWrap{
+    display: block;
 }
 
 .EachCategoryItem img{

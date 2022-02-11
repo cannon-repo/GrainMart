@@ -4,13 +4,14 @@ import "./Navbar.css";
 import {HiOutlineSearch} from "react-icons/hi";
 import Cart from '../Cart/Cart';
 import {MdExpandMore} from "react-icons/md";
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   return (
   <div className='Navbar'>
-      <div className='LogoWrap'>
+      <NavLink to="/" className='LogoWrap'>
       <Logo/>
-      </div>
+      </NavLink>
       <div className='SearchBox'>
           <input type="text" placeholder='Search products'/>
           <div className='SearchBtn'><HiOutlineSearch/></div>

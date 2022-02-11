@@ -7,7 +7,7 @@ const ItemSlider = (props) => {
       {
           props.data.map((data,index) => {
               return (
-                  <div className='EachItem'>
+                  <div key={index} className='EachItem'>
                       <img alt={`${data.name}`} src={`${data.url}`}/>
                       <p className='ItemName'>{data.name}</p>
                       <p className='ItemPrice'>₹ {data.rating}/10</p>
