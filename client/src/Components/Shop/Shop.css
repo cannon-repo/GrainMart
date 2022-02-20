@@ -1,191 +1,261 @@
-.ShopWrap{
-    position: relative;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+.ShopWrap {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.ShrinkedCategory{
-    position: fixed;
-    width: 100%;
-    height: 50px;
-    display: flex;
-    padding: 0px 10px;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: nowrap;
-    overflow-x: scroll;
-    border-bottom: 1px solid gainsboro;
-    box-shadow: 0px 0px 5px 0px gainsboro;
-    background-color: #fff;
-    z-index: 9;
+.ShrinkedCategory {
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  padding: 0px 10px;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  border-bottom: 1px solid gainsboro;
+  box-shadow: 0px 0px 5px 0px gainsboro;
+  background-color: #fff;
+  z-index: 9;
 }
 
-.ShrinkedCategory::-webkit-scrollbar{
-    display: none;
+.ShrinkedCategory::-webkit-scrollbar {
+  display: none;
 }
 
-.EachCategory{
-    margin: 0px 20px;
-    height: 50px;
-    padding: 0px 5px;
-    display: flex;
-    cursor: pointer;
+.EachCategory {
+  margin: 0px 20px;
+  height: 50px;
+  padding: 0px 5px;
+  display: flex;
+  cursor: pointer;
 }
 
-.EachCategory span{
-    font-size: 15px;
-    margin-right: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Montserrat';
+.EachCategory span {
+  font-size: 15px;
+  margin-right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat";
 }
 
-.FilterResults{
-    margin-top: 50px;
-    width: 100%;
-    margin-bottom: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border-bottom: 1px solid gainsboro;
-    flex-wrap: nowrap;
-    overflow-x: scroll;
-    padding: 10px;
+.FilterResults {
+  margin-top: 50px;
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-bottom: 1px solid gainsboro;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  padding: 10px;
 }
 
-.FilterResultsHero{
-    font-size: 16px;
-    font-family: 'Montserrat';
-    margin-bottom: 10px;
-    color: #555;
+.FilterResultsHero {
+  font-size: 16px;
+  font-family: "Montserrat";
+  margin-bottom: 10px;
+  color: #555;
 }
 
-.FilterResults::-webkit-scrollbar{
-    display: none;
+.FilterResults::-webkit-scrollbar {
+  display: none;
 }
 
-.EachBlockWrap{
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.EachBlockWrap {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.EachBlock{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    font-size: 15px;
+.EachBlock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 15px;
 }
 
-.Shop{
-    position: relative;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;
+.Shop {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-.ProductCardWrap{
-    width: 200px;
-    height: 300px;
-    margin: 20px auto;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+.ProductCardWrap {
+  width: 220px;
+  height: 300px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
-.ProductCard{
-    width: 200px;
-    height: 290px;
-    display: flex;
-    flex-direction: column;
-    border-radius: 5px;
-    overflow: hidden;
-    transition: 0.2s ease;
-    border: 1px solid gainsboro;
-    cursor: pointer;
+.ProductCard {
+  width: 220px;
+  height: 290px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: 0.2s ease;
+  border: 1px solid gainsboro;
+  cursor: pointer;
+  margin: 0px 10px;
 }
 
-.ProductCard:hover{
-    transform: translateY(-5px);
-    box-shadow: 0px 0px 10px 0px gainsboro;
+.ProductCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 0px 10px 0px gainsboro;
 }
 
-.ProductImage{
-    width: 200px;
-    height: 200px;
-    background-size: cover;
-    background-position: center center;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
-    overflow: hidden;
-}   
-.ProductInfoWrap, .ProductActions{
-    background-color: #fff;
-    width: 100%;
-    padding: 0px 10px;
+.ProductImage {
+  width: 220px;
+  height: 200px;
+  background-size: cover;
+  background-position: center center;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  overflow: hidden;
 }
 
-.ProductInfoWrap{
-    height: 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    font-size: 16px;
+.ProductInfoWrap,
+.ProductActions {
+  background-color: #fff;
+  width: 100%;
+  padding: 0px 10px;
 }
 
-.ProductName, .PriceAndRatingWrap p{
-    font-family: 'Montserrat';
+.ProductInfoWrap {
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 16px;
 }
 
-.ProductName{
-    font-weight: bolder;
+.ProductName,
+.PriceAndRatingWrap p {
+  font-family: "Montserrat";
 }
 
-.PriceAndRatingWrap{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.ProductName {
+  font-weight: bolder;
 }
 
-.ProductRating{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    background-color: rgb(50,195,50);
-    padding: 1px 3px;
-    border-radius: 3px;
-    font-size: 14px;
+.PriceAndRatingWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.ProductActions{
-    height: 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid gainsboro;
+.ProductRating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-color: rgb(50, 195, 50);
+  padding: 1px 3px;
+  border-radius: 3px;
+  font-size: 14px;
 }
 
-.AddToCard, .AddToWishList {
-    width: 35px;
+.ProductActions {
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid gainsboro;
+}
+
+.AddToCard,
+.AddToWishList {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 20px;
+  transition: all 0.25s ease;
+}
+
+.AddToCard:hover,
+.AddToWishList:hover {
+  background-color: rgb(230, 230, 230);
+}
+
+@media screen and (max-width: 450px) {
+  .ProductCardWrap {
+    width: 175px;
+    height: 250px;
+  }
+  .ProductCard {
+    width: 175px;
+    height: 240px;
+    margin: 0px 8px;
+  }
+  .ProductImage {
+    width: 175px;
+    height: 160px;
+  }
+  .ProductInfoWrap {
+    height: 45px;
+  }
+  .ProductActions {
     height: 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    font-size: 20px;
-    transition: all 0.25s ease;
+  }
+  .ProductInfoWrap {
+    font-size: 15px;
+  }
+  .ProductRating {
+    font-size: 13px;
+  }
+  .AddToCard,
+  .AddToWishList {
+      font-size: 18px;
+  }
 }
 
-.AddToCard:hover, .AddToWishList:hover {
-    background-color: rgb(230,230,230);
+@media screen and (max-width: 360px) {
+  .ProductCardWrap {
+    width: 150px;
+    height: 230px;
+  }
+  .ProductCard {
+    width: 150px;
+    height: 220px;
+    margin: 0px 5px;
+  }
+  .ProductImage {
+    width: 150px;
+    height: 150px;
+  }
+  .ProductInfoWrap {
+    height: 40px;
+  }
+  .ProductActions {
+    height: 30px;
+  }
+  .ProductInfoWrap {
+    font-size: 14px;
+  }
+  .ProductRating {
+    font-size: 12px;
+  }
+  .AddToCard,
+  .AddToWishList {
+      font-size: 16px;
+  }
 }
