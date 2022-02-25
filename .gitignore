@@ -9,6 +9,7 @@
 
 /server/node_modules
 /client/node_modules
+/client/src/Assets/Data/ItemSliderList.js
 
 # testing
 /coverage

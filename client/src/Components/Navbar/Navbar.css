@@ -114,7 +114,7 @@
   height: auto;
   top: 100%;
   visibility: hidden;
-  z-index: 9;
+  z-index: 99;
 }
 
 .MoreInfo {
