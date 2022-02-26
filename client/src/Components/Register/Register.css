@@ -1,0 +1,139 @@
+.RegisterWrap{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../../Assets/Images/RegBackdrop.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.RegisterForm{
+    width: '100%';
+    min-width: 250px;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgb(200,200,200);
+    border-radius: 7px;
+    transition: 0.25s ease;
+    box-shadow: 0px 0px 10px 0px rgb(220, 220, 220);
+    background: rgba( 255, 255, 255, 0.2 );
+    backdrop-filter: blur( 6px );
+    -webkit-backdrop-filter: blur( 6px );
+    overflow: hidden;
+}
+
+.RegisterForm:focus-within, .RegisterForm:hover{
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+}
+
+.SwitchWrap {
+    width: 100%;
+    display: flex;
+}
+
+.RegisterSwitch, .LoginSwitch {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0px;
+    font-family: 'Poppins';
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.RegisterBind{
+    width: 100%;
+    display: flex;
+    transition: 0.5s ease-in-out;
+}
+
+.RegPart1, .RegPart2{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 190px;
+    padding: 20px calc(20px + 1vw);
+}
+
+.RegFieldWrap{
+    display: flex;
+    flex-direction: column;
+}
+
+.RegFieldWrap label {
+    font-size: 14px;
+    font-family: 'Poppins';
+    margin-bottom: 5px;
+}
+
+.RegFieldWrap input {
+    padding: 5px 10px;
+    border: none;
+    border-bottom: 2px solid rgb(200,200,200);
+    font-size: 17px;
+    transition: 0.3s ease;
+    background-color: transparent;
+}
+
+.RegFieldWrap input:focus {
+    border-bottom: 2px solid rgb(255, 200, 0);
+}
+
+.RegFormControls{
+    margin: auto auto;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.RegBtnWrap{
+    display: flex;
+}
+
+.prevRegSection, .nextRegSection{
+    color: #555;
+    font-family: 'Poppins';
+}
+
+.RegBtnWrap button {
+    padding: 5px 8px;
+    text-transform: uppercase;
+    border: none;
+    background-color: transparent;
+    font-size: 14px;
+    border: 2px solid gainsboro;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.RegBtn{
+    font-family: 'Quicksand';
+    width: 100px;
+    margin: 0px 20px;
+    letter-spacing: 1px;
+    color: #777;
+    font-weight: bolder;
+}
+
+.TimelineWrap span {
+    font-size: 24px;
+    transition: all 0.3s ease;
+}
+
+.TimelineWrap span:first-child {
+    color: rgb(255,200,0);
+}
+
+.TimelineWrap span:last-child {
+    color: #999;
+}

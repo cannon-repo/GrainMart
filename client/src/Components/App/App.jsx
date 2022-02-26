@@ -5,6 +5,8 @@ import Navbar from '../Navbar/Navbar';
 import {Route, Routes} from "react-router-dom";
 import Home from '../Home/Home';
 import Shop from "../Shop/Shop";
+import Register from '../Register/Register';
+import Login from '../Login/Login';
 
 const App = () => {
   const [,height] = useWindowSize();
@@ -15,6 +17,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/shop" element={<Shop/>}/>
+        <Route path="/register" element={<Register/>} />
+        <Route path="/login" element={<Login/>} />
       </Routes>
     </div>
   </div>
