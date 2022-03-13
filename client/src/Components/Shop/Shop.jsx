@@ -5,8 +5,10 @@ import "./Shop.css";
 import ShrinkedCategory from './ShrinkedCategory';
 import {Item1} from "../../Assets/Data/ItemSliderList";
 import Footer from '../Footer/Footer';
+import useCheckUser from "../../Hooks/CheckUser";
 
 const Shop = () => {
+  useCheckUser();
   return (
     <div className='ShopWrap'>
         <ShrinkedCategory/>

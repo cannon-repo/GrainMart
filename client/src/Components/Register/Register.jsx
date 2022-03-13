@@ -4,10 +4,11 @@ import { useDynamicBannerSize } from "../../Hooks/GetDynamicWidth";
 import RegFormControls from "./RegFormControls";
 import { useDispatch, useSelector } from "react-redux";
 import {setRegisterActive, setRegisterDisabled, getPrevSection} from "../../Redux/RegisterDataSlice";
-import {NavLink} from "react-router-dom";
+import {useNavigate, NavLink} from "react-router-dom";
 
 const Register = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [name, setName] = useState('');
   const [userId, setUserId] = useState('');
@@ -71,12 +72,9 @@ const Register = () => {
       body: JSON.stringify({Name: name, UserId: userId, Pwd: pwd})
     }).then((res) => res.json()).then((data) => {
       if(data.success) {
-        setName("");
-        setUserId("");
-        setPwd("");
-        setPwdCheck("");
         if(sectionNum === 2) {
           dispatch(getPrevSection());
+          navigate("/login");
         }
       } else {
         alert(data.msg);

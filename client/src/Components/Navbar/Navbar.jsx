@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Logo from "../Logo/Logo";
 import "./Navbar.css";
 import { HiOutlineSearch } from "react-icons/hi";
 import Cart from "../Cart/Cart";
 import { MdExpandMore } from "react-icons/md";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+import UserAvatar from "../UserAvatar/UserAvatar";
+import useCheckUser from "../../Hooks/CheckUser";
 
 const Navbar = () => {
+
+  useCheckUser();
+  
+  const hasUser = useSelector((state) => state.userData.hasUser);
+  
   return (
     <div className="Navbar">
       <NavLink to="/" className="LogoWrap">
@@ -19,9 +27,12 @@ const Navbar = () => {
         </div>
       </div>
       <div className="NavLinks">
-        <NavLink to="/login" className="Login">
-          Login
-        </NavLink>
+        {
+          hasUser ? (<UserAvatar/>) : (
+            <NavLink to="/login" className="Login">
+              Login
+            </NavLink>)
+        }
         <span className="More">
           More
           <p>

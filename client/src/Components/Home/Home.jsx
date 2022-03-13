@@ -7,8 +7,11 @@ import Footer from "../Footer/Footer";
 import {useDynamicBannerSize} from "../../Hooks/GetDynamicWidth";
 import ItemSlider from "../ItemSlider/ItemSlider";
 import {Item1} from "../../Assets/Data/ItemSliderList";
+import useCheckUser from "../../Hooks/CheckUser";
 
 const Home = () => {
+
+  useCheckUser();
 
   const BannerRef = useRef(null);
   const size = useDynamicBannerSize(BannerRef) - 5;

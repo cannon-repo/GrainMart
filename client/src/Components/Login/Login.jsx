@@ -1,9 +1,15 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import "./Login.css";
+import { setUser } from "../../Redux/UserDataSlice";
+import {useNavigate} from "react-router-dom";
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [userId, setUserId] = useState("");
   const [pwd, setPwd] = useState("");
   const [loginBtnActive, setLoginBtnActive] = useState(false);
@@ -32,8 +38,8 @@ const Login = () => {
       body: JSON.stringify({UserId: userId, Pwd: pwd})
     }).then((res) => res.json()).then((data) => {
       if(data.success) {
-        setUserId("");
-        setPwd("");
+        dispatch(setUser({name: data.msg.Name, userId: data.msg.UserId}));
+        navigate("/");
       } else {
         alert(data.msg);
       }

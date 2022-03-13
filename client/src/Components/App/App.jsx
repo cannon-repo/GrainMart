@@ -7,9 +7,15 @@ import Home from '../Home/Home';
 import Shop from "../Shop/Shop";
 import Register from '../Register/Register';
 import Login from '../Login/Login';
+import useCheckUser from "../../Hooks/CheckUser";
+import { useSelector } from 'react-redux';
 
 const App = () => {
+
+  useCheckUser();
+
   const [,height] = useWindowSize();
+
   return (
   <div className='GrainMart' style={{height: height}}>
     <Navbar/>

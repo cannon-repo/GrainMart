@@ -77,7 +77,7 @@ module.exports.getLoggedUser = (req, res) => {
             }
             const user = await User.findById(decoded.id);
             if (user) {
-                return res.status(200).json({success: true, msg: user.UserId});
+                return res.status(200).json({success: true, msg: user});
             } else {
                 return res.status(400).json({success: false, msg:'User Not found'});
             }
