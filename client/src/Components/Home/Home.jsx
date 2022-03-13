@@ -37,19 +37,19 @@ const Home = () => {
               <div className="Slide1 Slides">
                 <img
                   alt="Slide 1"
-                  src="https://www.teahub.io/photos/full/270-2705485_high-resolution-car-wallpapers-for-desktop.jpg"
+                  src="https://img.freepik.com/free-psd/super-grocery-sale-web-banner_120329-270.jpg"
                 />
               </div>
               <div className="Slide2 Slides">
                 <img
                   alt="Slide 2"
-                  src="https://images.wallpaperscraft.com/image/single/lamborghini_gallardo_cars_car_79728_1280x720.jpg"
+                  src="https://i.pinimg.com/736x/ee/45/fb/ee45fbad53747d460a374b844ebba298.jpg"
                 />
               </div>
               <div className="Slide3 Slides">
                 <img
                   alt="Slide 3"
-                  src="https://cdn.motor1.com/images/mgl/kXejR/s3/fastest-cars-lead.jpg"
+                  src="https://i.pinimg.com/736x/68/e6/2f/68e62fb46761aaa17ae65730e893abba.jpg"
                 />
               </div>
             </Carousel>

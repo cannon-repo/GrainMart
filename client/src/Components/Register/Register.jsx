@@ -3,7 +3,7 @@ import "./Register.css";
 import { useDynamicBannerSize } from "../../Hooks/GetDynamicWidth";
 import RegFormControls from "./RegFormControls";
 import { useDispatch, useSelector } from "react-redux";
-import {setRegisterActive, setRegisterDisabled} from "../../Redux/RegisterDataSlice";
+import {setRegisterActive, setRegisterDisabled, getPrevSection} from "../../Redux/RegisterDataSlice";
 import {NavLink} from "react-router-dom";
 
 const Register = () => {
@@ -63,6 +63,27 @@ const Register = () => {
     dispatch(setRegisterActive());
   }, [name, userId, pwd, pwdCheck,dispatch]);
 
+  const registerClickHandler = (e) => {
+    e.preventDefault();
+    fetch('/api/user/register', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({Name: name, UserId: userId, Pwd: pwd})
+    }).then((res) => res.json()).then((data) => {
+      if(data.success) {
+        setName("");
+        setUserId("");
+        setPwd("");
+        setPwdCheck("");
+        if(sectionNum === 2) {
+          dispatch(getPrevSection());
+        }
+      } else {
+        alert(data.msg);
+      }
+    }).catch((err) => console.log(err));
+  }
+
   return (
     <section className="RegisterWrap">
       <form className="RegisterForm" ref={formRef}>
@@ -92,7 +113,7 @@ const Register = () => {
             </div>
           </div>
         </div>
-        <RegFormControls/>
+        <RegFormControls registerHandler={registerClickHandler}/>
       </form>
     </section>
   );

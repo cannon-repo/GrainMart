@@ -12,7 +12,6 @@
 }
 
 .RegisterForm{
-    width: '100%';
     min-width: 250px;
     width: 100%;
     max-width: 400px;
@@ -26,6 +25,13 @@
     backdrop-filter: blur( 6px );
     -webkit-backdrop-filter: blur( 6px );
     overflow: hidden;
+}
+
+@media screen and (max-width: 400px) {
+    .RegisterForm{
+        width: 100%;
+        height: 100%;
+    }
 }
 
 .RegisterForm:focus-within, .RegisterForm:hover{
@@ -51,7 +57,7 @@
 .RegisterBind{
     width: 100%;
     display: flex;
-    transition: 0.5s ease-in-out;
+    transition: 0.3s ease-in-out;
 }
 
 .RegPart1, .RegPart2{

@@ -24,6 +24,22 @@ const Login = () => {
       backgroundColor: loginBtnActive ? 'transparent' : 'gainsboro',
   }
 
+  const loginClickHandler = (e) => {
+    e.preventDefault();
+    fetch('api/user/login', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({UserId: userId, Pwd: pwd})
+    }).then((res) => res.json()).then((data) => {
+      if(data.success) {
+        setUserId("");
+        setPwd("");
+      } else {
+        alert(data.msg);
+      }
+    }).catch((err) => console.log(err));
+  }
+
   return (
     <section className="LoginWrap">
       <form className="LoginForm">
@@ -66,7 +82,7 @@ const Login = () => {
             />
           </div>
         </div>
-        <button className="LoginBtn" style={disabledBg} disabled={!loginBtnActive}>Login</button>
+        <button className="LoginBtn" style={disabledBg} disabled={!loginBtnActive} onClick={loginClickHandler}>Login</button>
       </form>
     </section>
   );

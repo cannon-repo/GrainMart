@@ -7,7 +7,7 @@ import {
   getPrevSection,
 } from "../../Redux/RegisterDataSlice";
 
-const RegFormControls = () => {
+const RegFormControls = ({registerHandler}) => {
   const dispatch = useDispatch();
 
   const sectionNum = useSelector((state) => state.regData.sectionNum);
@@ -73,6 +73,7 @@ const RegFormControls = () => {
           className="RegBtn"
           style={disabledStyle.reg}
           disabled={!regBtnStatus}
+          onClick={registerHandler}
         >
           Register
         </button>

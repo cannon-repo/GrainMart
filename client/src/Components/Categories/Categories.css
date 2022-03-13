@@ -21,6 +21,13 @@
     align-items: center;
     margin: 0px 40px;
     cursor: pointer;
+    text-decoration: none;
+    text-decoration-color: #000;
+    color: #000;
+}
+
+.EachCategoryItem:active {
+    text-decoration: none;
 }
 
 .SubCategoryOverlayWrap{
@@ -44,5 +51,8 @@
 
 .EachCategoryItem p{
     font-size: 15px;
+    color: #000;
     text-align: center;
+    text-decoration: none;
+    text-decoration-color: #000;
 }

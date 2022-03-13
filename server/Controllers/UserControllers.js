@@ -7,15 +7,14 @@ module.exports.postRegister = async (req, res) => {
     try {
         const userExist = await User.findOne({ UserId });
         if (userExist) {
-            return res.status(400).json('User already exists');
+            return res.status(400).json({success: false, msg: 'User already exists'});
         }
         const salt = await bcrypt.genSalt();
         const newPwd = await bcrypt.hash(Pwd, salt);
         await User.create({ Name, UserId, Pwd: newPwd });
-        res.json('User registered successfully');
+        res.json({success: true, msg: 'User registered successfully'});
     } catch (err) {
-        res.status(400).json('Error from postRegister');
-
+        res.status(400).json({success: false, msg:'Error from postRegister'});
     }
 }
 
@@ -24,19 +23,19 @@ module.exports.postLogin = async (req, res) => {
     try {
         const userExist = await User.findOne({ UserId });
         if (!userExist) {
-            return res.status(400).json('Please register first');
+            return res.status(400).json({success: false, msg:'Please register first'});
         }
         const isMatch = await bcrypt.compare(Pwd, userExist.Pwd);
 
         if (isMatch) {
             const token = jwt.sign({ id: userExist._id }, process.env.SECRET_KEY, { expiresIn: 60 * 60 * 24 * 3 });
             res.cookie('jwt', token, { maxAge: 1000 * 60 * 60 * 24 * 3 });
-            return res.status(200).json('Login success');
+            return res.status(200).json({success: true, msg:'Login success'});
         } else {
-            return res.status(400).json('Wrong Credentials');
+            return res.status(400).json({success: false, msg:'Wrong Credentials'});
         }
     } catch (err) {
-        return res.status(400).json({ message: 'Error from postLogin', err });
+        return res.status(400).json({success: false, msg: 'Error from postLogin', error: err });
     }
 }
 
@@ -44,9 +43,9 @@ module.exports.getLogout = (req, res) => {
     const token = req.cookies.jwt;
     if (token) {
         res.cookie('jwt', '', { maxAge: 0 });
-        return res.status(200).json('Logout Success');
+        return res.status(200).json({success: true, meg: 'Logout Success'});
     } else {
-        return res.status(400).json('Please Login First');
+        return res.status(400).json({success: false, msg: 'Please Login First'});
     }
 }
 
@@ -55,17 +54,17 @@ module.exports.authUser = (req, res, next) => {
     if (token) {
         jwt.verify(token, process.env.SECRET_KEY, async (err, decoded) => {
             if (err) {
-                return res.status(400).json('User not found');
+                return res.status(400).json({success: false, msg: 'User not found'});
             }
             const user = await User.findById(decoded.id);
             if (user) {
                 next();
             } else {
-                return res.status(400).json('User Not found');
+                return res.status(400).json({success: false, msg:'User Not found'});
             }
         })
     } else {
-        return res.json('User Not Found');
+        return res.json({success: false, msg:'User Not Found'});
     }
 }
 
@@ -74,25 +73,25 @@ module.exports.getLoggedUser = (req, res) => {
     if (token) {
         jwt.verify(token, process.env.SECRET_KEY, async (err, decoded) => {
             if (err) {
-                return res.status(400).json('User not found');
+                return res.status(400).json({success: false, msg: 'User not found'});
             }
             const user = await User.findById(decoded.id);
             if (user) {
-                return res.status(200).json(user.UserId);
+                return res.status(200).json({success: true, msg: user.UserId});
             } else {
-                return res.status(400).json('User Not found');
+                return res.status(400).json({success: false, msg:'User Not found'});
             }
         })
     } else {
-        return res.json('User Not Found');
+        return res.json({success: false, msg: 'User Not Found'});
     }
 }
 
 module.exports.getAllUsers = async (req, res) => {
     try {
         const allUsers = await User.find();
-        res.status(200).json({ users: allUsers });
+        res.status(200).json({success: true, users: allUsers });
     } catch (err) {
-        res.status(400).json(err);
+        res.status(400).json({success: false, error: err});
     }
 }
