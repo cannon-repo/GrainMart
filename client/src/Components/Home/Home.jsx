@@ -4,26 +4,29 @@ import "./Home.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import Footer from "../Footer/Footer";
-import {useDynamicBannerSize} from "../../Hooks/GetDynamicWidth";
+import { useDynamicBannerSize } from "../../Hooks/GetDynamicWidth";
 import ItemSlider from "../ItemSlider/ItemSlider";
-import {Item1} from "../../Assets/Data/ItemSliderList";
+import { Item1 } from "../../Assets/Data/ItemSliderList";
 import useCheckUser from "../../Hooks/CheckUser";
 
 const Home = () => {
-
   useCheckUser();
 
   const BannerRef = useRef(null);
   const size = useDynamicBannerSize(BannerRef) - 5;
-  let largeSize = Math.floor((size*65)/100) || Math.floor(window.innerWidth/2);
-  let smallSize = Math.floor(largeSize/2);
+  let largeSize =
+    Math.floor((size * 65) / 100) || Math.floor(window.innerWidth / 2);
+  let smallSize = Math.floor(largeSize / 2);
 
   largeSize += 4;
   smallSize += 4;
 
   return (
     <div className="Home">
-      <div className="CategoryWrap">
+      <div
+        className="CategoryWrap"
+        style={{ width: `${window.innerWidth - 5}px` }}
+      >
         <Categories />
       </div>
       <div className="HomeItemsWrap">
