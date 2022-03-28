@@ -10,11 +10,10 @@ import UserAvatar from "../UserAvatar/UserAvatar";
 import useCheckUser from "../../Hooks/CheckUser";
 
 const Navbar = () => {
-
   useCheckUser();
-  
+
   const hasUser = useSelector((state) => state.userData.hasUser);
-  
+
   return (
     <div className="Navbar">
       <NavLink to="/" className="LogoWrap">
@@ -27,12 +26,13 @@ const Navbar = () => {
         </div>
       </div>
       <div className="NavLinks">
-        {
-          hasUser ? (<UserAvatar/>) : (
-            <NavLink to="/login" className="Login">
-              Login
-            </NavLink>)
-        }
+        {hasUser ? (
+          <UserAvatar />
+        ) : (
+          <NavLink to="/login" className="Login">
+            Login
+          </NavLink>
+        )}
         <span className="More">
           More
           <p>
@@ -49,7 +49,9 @@ const Navbar = () => {
           </div>
         </span>
         <span>
-          <Cart />
+          <NavLink to="/cart">
+            <Cart />
+          </NavLink>
         </span>
       </div>
     </div>

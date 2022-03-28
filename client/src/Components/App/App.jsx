@@ -8,7 +8,7 @@ import Shop from "../Shop/Shop";
 import Register from '../Register/Register';
 import Login from '../Login/Login';
 import useCheckUser from "../../Hooks/CheckUser";
-import { useSelector } from 'react-redux';
+import CartScreen from '../Cart/CartScreen';
 
 const App = () => {
 
@@ -25,6 +25,7 @@ const App = () => {
         <Route path="/shop" element={<Shop/>}/>
         <Route path="/register" element={<Register/>} />
         <Route path="/login" element={<Login/>} />
+        <Route path="/cart" element={<CartScreen/>} />
       </Routes>
     </div>
   </div>
