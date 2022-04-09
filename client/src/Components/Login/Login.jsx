@@ -38,6 +38,7 @@ const Login = () => {
       body: JSON.stringify({UserId: userId, Pwd: pwd})
     }).then((res) => res.json()).then((data) => {
       if(data.success) {
+        localStorage.setItem('loggedin', true);
         dispatch(setUser({name: data.msg.Name, userId: data.msg.UserId}));
         navigate("/");
       } else {

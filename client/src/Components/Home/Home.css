@@ -27,10 +27,6 @@
 
 .Slides{
     width: 100%;
-}
-
-.Slides img{
-    width: 100%;
     background-size: cover;
     background-position: center center;
     border-radius: 3px;
@@ -83,12 +79,15 @@
 }
 
 .SellOnGrainMart{
+    position: absolute;
     width: 200px;
     height: 200px;
     background-image: url(../../Assets/Images/Banners/SellWithUs.png);
     background-size: cover;
     background-position: center center;
-    transform: translateY(8vw);
+    bottom: -25%;
+    right: 10px;
+    /* transform: translateY(calc(50px + 1vw)); */
     z-index: 9;
 }
 
@@ -127,7 +126,7 @@
     flex-direction: column;
 }
 
-.LargeBannerWrap img, .SmallBannerWrap img{
+.LargeBanner, .SmallBanner{
     height: 100%;
     background-size: cover;
     background-position: center center;

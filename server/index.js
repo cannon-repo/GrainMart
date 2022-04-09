@@ -2,8 +2,9 @@ const express = require("express");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
-const UserRoutes = require("./Routes/UserRoutes");
 const cors = require("cors");
+const UserRoutes = require("./Routes/UserRoutes");
+const SellerRoutes = require("./Routes/SellerRoutes");
 
 dotenv.config();
 
@@ -22,3 +23,4 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 app.use('/api/user', UserRoutes);
+app.use('/api/seller', SellerRoutes);

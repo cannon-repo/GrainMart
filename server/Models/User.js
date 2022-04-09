@@ -14,6 +14,17 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true,
         minlength: 8
+    },
+    IsSeller: {
+        type: Boolean,
+        default: false,
+    },
+    SellerName: {
+        type: String,
+        minlength: 3
+    },
+    SellerId: {
+        type: String,
     }
 });
 

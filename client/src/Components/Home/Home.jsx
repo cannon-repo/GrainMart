@@ -40,20 +40,23 @@ const Home = () => {
               showIndicators={false}
               dynamicHeight={false}
             >
-              <div className="Slide1 Slides">
+              <div className="Slide1">
                 <img
+                  className="Slides"
                   alt="Slide 1"
                   src="https://img.freepik.com/free-psd/super-grocery-sale-web-banner_120329-270.jpg"
                 />
               </div>
-              <div className="Slide2 Slides">
+              <div className="Slide2">
                 <img
+                  className="Slides"
                   alt="Slide 2"
                   src="https://i.pinimg.com/736x/ee/45/fb/ee45fbad53747d460a374b844ebba298.jpg"
                 />
               </div>
-              <div className="Slide3 Slides">
+              <div className="Slide3">
                 <img
+                  className="Slides"
                   alt="Slide 3"
                   src="https://i.pinimg.com/736x/68/e6/2f/68e62fb46761aaa17ae65730e893abba.jpg"
                 />
@@ -74,6 +77,7 @@ const Home = () => {
               style={{ backgroundColor: "aliceblue" }}
             >
               <img
+                className="LargeBanner"
                 alt="Buy Vegies&Fruits"
                 src="https://www.jing.fm/clipimg/full/306-3060664_juice-organic-food-vegetable-fruit-fruits-and-vegetables.png"
                 style={{ width: largeSize }}
@@ -81,11 +85,13 @@ const Home = () => {
             </div>
             <div className="SmallBannerWrap">
               <img
+                className="SmallBanner"
                 alt="Offer1"
                 src="https://thumbs.dreamstime.com/b/buy-get-free-banner-sale-template-super-red-big-yellow-mega-black-summer-festivel-christmas-161908270.jpg"
                 style={{ width: smallSize }}
               />
               <img
+                className="SmallBanner"
                 alt="Offer2"
                 src="https://freedesignfile.com/upload/2019/05/Natural-farm-milk-food-poster-design-vector-04.jpg"
                 style={{ width: smallSize }}
@@ -95,11 +101,13 @@ const Home = () => {
           <div className="Banner">
             <div className="SmallBannerWrap">
               <img
+                className="SmallBanner"
                 alt="Offer3"
                 src="https://static.vecteezy.com/system/resources/previews/003/398/158/non_2x/round-frame-made-of-fresh-vegetables-big-sale-advertising-vector.jpg"
                 style={{ width: smallSize }}
               />
               <img
+                className="SmallBanner"
                 alt="Offer4"
                 src="https://images.all-free-download.com/images/graphiclarge/big_sale_banner_fruits_icons_decoration_6833966.jpg"
                 style={{ width: smallSize }}
@@ -107,6 +115,7 @@ const Home = () => {
             </div>
             <div className="LargeBannerWrap">
               <img
+                className="LargeBanner"
                 alt="Buy Staples"
                 src="https://researchoutreach.org/wp-content/uploads/2020/12/shutterstock_1861580353.jpg"
                 style={{ width: largeSize }}

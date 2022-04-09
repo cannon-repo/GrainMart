@@ -44,7 +44,7 @@ const Navbar = () => {
             </div>
             <div className="MoreInfo">
               <section>Offers</section>
-              <section>Sell on GrainMart</section>
+              <section><NavLink to="/sellerpanel" style={{textDecoration: 'none', textDecorationColor: '#000', color: '#000', width: '100%',height: '100%', display: 'flex', justifyContent: 'flex-start', alignItems: 'center'}}>Sell on GrainMart</NavLink></section>
             </div>
           </div>
         </span>

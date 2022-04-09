@@ -10,7 +10,8 @@ const cartItems = [
     {name: 'Milk', price: '50', img: 'https://static.turbosquid.com/Preview/2019/02/26__22_40_08/Milky01.pngB09131D4-5B27-453C-9721-88B31F06E6D3Zoom.jpg', qty: '1'}
 ]
 
-const CartScreen = () => {
+const CartScreen = ({data}) => {
+  console.log('From cart', data);
   return (
     <div className="CartScreenWrap">
         <p style={{fontSize: 'calc(15px + 0.5vw)', fontWeight: 'bold', textAlign: 'start', width: '100%', margin: '20px 0px'}}>My Items({cartItems.length})</p>

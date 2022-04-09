@@ -12,7 +12,7 @@ module.exports.postRegister = async (req, res) => {
         const salt = await bcrypt.genSalt();
         const newPwd = await bcrypt.hash(Pwd, salt);
         await User.create({ Name, UserId, Pwd: newPwd });
-        res.json({success: true, msg: 'User registered successfully'});
+        res.status(200).json({success: true, msg: 'User registered successfully'});
     } catch (err) {
         res.status(400).json({success: false, msg:'Error from postRegister'});
     }
@@ -40,6 +40,7 @@ module.exports.postLogin = async (req, res) => {
 }
 
 module.exports.getLogout = (req, res) => {
+    console.log('reached logout');
     const token = req.cookies.jwt;
     if (token) {
         res.cookie('jwt', '', { maxAge: 0 });

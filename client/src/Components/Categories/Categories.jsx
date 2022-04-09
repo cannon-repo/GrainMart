@@ -11,8 +11,6 @@ const Categories = () => {
 
   const eachHor = Math.min(60, Math.floor(hor[0]/6) - 20);
 
-  console.log(hor, eachHor);
-
   const clickHandler = (e, flag) => {
     if("ontouchstart" in document.documentElement) {
       if(flag) {
@@ -25,7 +23,7 @@ const Categories = () => {
     <div className="Categories">
       {categories.map((data, index) => {
         return (
-          <div className="EachCategoryItemWrap">
+          <div className="EachCategoryItemWrap" key={index}>
             <NavLink onClick={(e) => clickHandler(e,data.hasSubCategory)} to="/shop" style={{ textDecoration: "none" }} key={index}>
               <div className="EachCategoryItem">
                 <img

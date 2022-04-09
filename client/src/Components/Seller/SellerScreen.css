@@ -1,0 +1,104 @@
+.SellerRegWrap {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.SellerRegister {
+    width: 100%;
+    max-width: 550px;
+    height: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    border: 1px solid gainsboro;
+    border-radius: 7px;
+    overflow: hidden;
+    box-shadow: 0px 0px 15px 0px rgb(220,220,220);
+}
+
+.SellerRegBanner {
+    width: 100%;
+    background-color: var(--green);
+    display: flex;
+    align-items: center;
+    box-shadow: inset 0px 0px 20px 0px darkgreen;
+    padding-right: 10px;
+}
+
+.SellerRegBanner img {
+    margin-left: auto;
+}
+
+.SellerRegForm {
+    min-width: 300px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding: 10px;
+}
+
+.SellerRegFormHead {
+    font-size: 20px;
+    font-weight: bolder;
+    margin-bottom: 50px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid gainsboro;
+}
+
+.SellerRegInputWrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.SellerRegInputWrap input {
+    padding: 7px 10px;
+    border: 2px solid gainsboro;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.SellerRegInputWrap input:focus-within{
+    border: 2px solid var(--yellow);
+}
+
+.SellerRegInputWrap p {
+    font-size: 13px;
+    font-weight: bolder;
+    margin: 10px 0px;
+}
+
+.SellerRegFormBtn {
+    margin: 25px 0px 10px 0px;
+    padding: 5px 0px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bolder;
+    border: 2px solid gainsboro;
+}
+
+@media screen and (max-width: 600px) {
+    .SellerRegister {
+        flex-direction: column;
+        height: 100%;
+        border-radius: 0px;
+        border: 0px;
+        border-top: 2px solid gainsboro;
+    }
+    .SellerRegBanner {
+        height: 100px;
+        overflow: hidden;
+    }
+    .SellerRegForm {
+        height: 100%;
+    }
+}
+
+@media screen and (max-height: 500px) {
+    .SellerRegBanner {
+        display: none;
+    }
+}
