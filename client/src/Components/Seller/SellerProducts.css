@@ -1,0 +1,99 @@
+.SellerScreenWrap {
+    width: 100%;
+    height: 100%;
+}
+
+.NoSellerProducts {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.NoSellerProducts::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* background-color: red; */
+    background-image: url('https://cdn.dribbble.com/users/144388/screenshots/1364170/spaceman.gif');
+    z-index: 1;
+    opacity: 0.2;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.NoProductTxt {
+    font-size: 18px;
+    color: #333;
+    font-weight: bolder;
+    z-index: 99;
+}
+
+.AddFirstProdBtn {
+    margin-top: 30px;
+    font-size: 14px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Montserrat';
+    background-color: var(--yellow);
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bolder;
+    z-index: 99;
+    cursor: pointer;
+}
+
+.SellerProductsWrap {
+    width: 100%;
+    height: 100%;
+    max-width: 900px;
+    padding: 0px 15px;
+    margin: 0px auto;
+}
+
+.SellerProdHead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0px;
+}
+
+.SellerNameProd {
+    font-size: 18px;
+    font-family: 'Montserrat';
+    color: #999;
+}
+
+.AddProdBtn {
+    font-size: 35px;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--yellow);
+    /* color: var(--green); */
+    font-weight: bolder;
+    background-color: transparent; 
+    cursor: pointer;
+}
+
+.MyProductsTxt {
+    font-size: 15px;
+    padding: 10px 0px;
+    font-family: 'Montserrat';
+    border-bottom: 2px solid rgb(230, 230, 230);
+    border-top: 2px solid rgb(230, 230, 230);
+}
+
+.SellerProducts {
+    width: 100%;
+    height: auto;
+    padding: 20px 0px;
+}

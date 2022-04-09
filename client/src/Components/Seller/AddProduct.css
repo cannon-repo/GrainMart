@@ -1,0 +1,117 @@
+.AddProductWrap {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+}
+
+.AddProductBackDrop {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  z-index: 1;
+}
+
+.AddProduct {
+  width: calc(100% - 20px);
+  max-width: 500px;
+  height: auto;
+  max-height: 85%;
+  overflow-y: scroll;
+  background-color: #fff;
+  z-index: 9;
+  margin: auto auto;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid gainsboro;
+  box-shadow: 0px 0px 30px 0px gainsboro;
+  padding: 20px 0px;
+}
+
+.AddProduct::-webkit-scrollbar {
+  display: none;
+}
+
+.AddProductHead {
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bolder;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-family: "Montserrat";
+  border-bottom: 2px solid gainsboro;
+  padding: 10px 0px;
+}
+
+.AddProductForm {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0px 3vw;
+}
+
+.AddProdInputWrap {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px 0px;
+}
+
+.AddProdInputWrap p {
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: bolder;
+}
+
+.AddProdInputWrap input,
+select {
+  padding: 7px 10px;
+  border: 2px solid gainsboro;
+  border-radius: 5px;
+  font-size: 15px;
+  font-family: "Montserrat";
+  background-color: transparent;
+  color: #111;
+}
+
+.AddProdInputWrap input:focus-within,
+select:focus-within {
+  border: 2px solid var(--yellow);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+
+.AddProductSubmitBtn {
+    width: 100%;
+    margin: 50px 0px 10px 0px;
+    padding: 10px 0px;
+    border: none;
+    font-size: 14px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-weight: bolder;
+    cursor: pointer;
+    color: #000;
+    font-family: 'Montserrat';
+}

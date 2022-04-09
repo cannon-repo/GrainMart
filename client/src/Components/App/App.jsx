@@ -23,8 +23,6 @@ const App = () => {
   const isSeller = useSelector((state) => state.userData.isSeller);
   const [,height] = useWindowSize();
 
-  console.log('Check', hasUser, localStorage.getItem('loggedin'));
-
   return (
   <div className='GrainMart' style={{height: height}}>
     <Navbar/>
