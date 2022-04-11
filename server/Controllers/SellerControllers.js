@@ -1,4 +1,5 @@
 const User = require("../Models/User");
+const Product = require("../Models/Product");
 
 module.exports.postSellerRegister = async (req,res) => {
     const {SellerName, SellerId, UserId} = req.body;
@@ -19,4 +20,19 @@ module.exports.postSellerRegister = async (req,res) => {
         console.log(err);
         res.status(400).json({success: false, msg: 'Error from postSellerRegister'});
     }
+}
+
+module.exports.addProductData = async (req,res,next) => {
+    const {SellerId, Name, Category, Price, Offer} = req.body;
+    const Image = req.file.filename;
+    try {
+        const data = {
+            SellerId, Name, Category, Price, Offer, Image
+        };
+        const savedProd = await Product.create(data);
+        res.status(200).json({msg: 'Product successfully added', data: savedProd});
+    } catch(err) {
+        console.log(err);
+    }
+    res.status(200).json('Hemlo');
 }

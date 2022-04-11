@@ -17,6 +17,7 @@ const UserAvatar = () => {
     fetch("/api/user/logout").then((res) => res.json()).then((data) => {
       if(data.success) {
         localStorage.removeItem('loggedin');
+        localStorage.removeItem('isSeller');
         dispatch(resetUser());
       } else {
         alert(data.msg);

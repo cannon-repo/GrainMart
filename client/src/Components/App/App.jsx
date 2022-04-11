@@ -32,7 +32,7 @@ const App = () => {
         <Route path="/shop" element={<Shop/>}/>
         <Route path="/register" element={<Register/>} />
         <Route path="/login" element={<Login/>} />
-        <Route path="/cart" element={hasUser ? <CartScreen data={hasUser}/> : <Login/>} />
+        <Route path="/cart" element={hasUser || localStorage.getItem('loggedin') ? <CartScreen /> : <Login/>} />
         <Route exact path="/sellerpanel" element={!hasUser && !localStorage.getItem('loggedin') ? <Navigate to="/login"/> : isSeller || localStorage.getItem('isSeller') ? <SellerScreen/> : <Navigate to="/sellerregister"/>} />
         <Route exact path="/sellerregister" element={hasUser || localStorage.getItem('loggedin') ? <SellerRegister/> : <Navigate to="/login"/> } />
       </Routes>

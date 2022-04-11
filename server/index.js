@@ -17,10 +17,11 @@ mongoose.connect(DB_URI, {useNewUrlParser: true, useUnifiedTopology: true}).then
     app.listen(PORT, () => console.log(`Server running at PORT: ${PORT}`));
 }).catch((err) => console.log(err));
 
+app.use('/Public', express.static('Public'));
 app.use(cors());
 app.use(cookieParser());
-app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.json({extended: false}));
+app.use(express.urlencoded({extended: false}));
 
 app.use('/api/user', UserRoutes);
 app.use('/api/seller', SellerRoutes);
