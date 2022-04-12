@@ -30,11 +30,11 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/shop" element={<Shop/>}/>
-        <Route path="/register" element={<Register/>} />
-        <Route path="/login" element={<Login/>} />
+        <Route path="/register" element={<Register/>} /> {/* same as login */}
+        <Route path="/login" element={<Login/>} /> {/* if user is loggedin nothing happens and user stays on that page only and not redirected to login */}
         <Route path="/cart" element={hasUser || localStorage.getItem('loggedin') ? <CartScreen /> : <Login/>} />
         <Route exact path="/sellerpanel" element={!hasUser && !localStorage.getItem('loggedin') ? <Navigate to="/login"/> : isSeller || localStorage.getItem('isSeller') ? <SellerScreen/> : <Navigate to="/sellerregister"/>} />
-        <Route exact path="/sellerregister" element={hasUser || localStorage.getItem('loggedin') ? <SellerRegister/> : <Navigate to="/login"/> } />
+        <Route exact path="/sellerregister" element={isSeller || localStorage.getItem('isSeller') ? <Navigate to="/sellerpanel" /> : hasUser || localStorage.getItem('loggedin') ? <SellerRegister/> : <Navigate to="/login"/> } />
       </Routes>
     </div>
   </div>

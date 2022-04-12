@@ -5,22 +5,27 @@ import "./SellerScreen.css";
 import "./SellerProducts.css";
 import SellerProducts from "./SellerProducts";
 import AddProduct from "./AddProduct";
-
-const products = ['rice', 'floor', 'juice', 'apple', 'carrot'];
+import { useSelector } from "react-redux";
+import useFetchSellerProducts from "../../Hooks/FetchSellerProducts";
 
 const SellerScreen = () => {
+
+  const products = useSelector((state) => state.productData.products);
+
   useGetSellerInfo();
 
   const [showAddProduct, setShowAddProduct] = useState(false);
 
+  useFetchSellerProducts();
+
   return (
     <div className="SellerScreenWrap">
-      {
-        products.length === 0 ? <NoSellerProducts trigger={setShowAddProduct}/> : <SellerProducts trigger={setShowAddProduct} products={products}/>
-      }
-      {
-        showAddProduct && <AddProduct trigger={setShowAddProduct}/>
-      }
+      {products.length === 0 ? (
+        <NoSellerProducts trigger={setShowAddProduct} />
+      ) : (
+        <SellerProducts trigger={setShowAddProduct} />
+      )}
+      {showAddProduct && <AddProduct trigger={setShowAddProduct} />}
     </div>
   );
 };

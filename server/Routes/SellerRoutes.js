@@ -15,7 +15,7 @@ const imageStorage = multer.diskStorage({
 const upload = multer({
     storage: imageStorage,
     fileFilter(req,file,cb) {
-        if (!file.originalname.match(/\.(png|jpg)$/)) {
+        if (!file.originalname.match(/\.(png|jpg|jpeg)$/)) {
             return cb(new Error('Please upload a Image'))
         }
         cb(undefined, true)
@@ -24,5 +24,6 @@ const upload = multer({
 
 router.post("/register", SellerController.postSellerRegister);
 router.post("/addproduct", upload.single('Image'), SellerController.addProductData);
+router.post("/myproducts", SellerController.getMyProducts);
 
 module.exports = router;

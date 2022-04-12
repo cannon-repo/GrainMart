@@ -33,6 +33,17 @@ module.exports.addProductData = async (req,res,next) => {
         res.status(200).json({msg: 'Product successfully added', data: savedProd});
     } catch(err) {
         console.log(err);
+        res.status(400).json('Error' + err);
     }
-    res.status(200).json('Hemlo');
+}
+
+module.exports.getMyProducts = async (req,res,next) => {
+    const {Name} = req.body;
+    try {
+        const myProds = await Product.find({SellerId: Name});
+        res.status(200).json({msg: 'Seller Product Fetch Successful', data: myProds });
+    } catch (err) {
+        console.log(err);
+        res.status(400).json('Error' + err);
+    }
 }

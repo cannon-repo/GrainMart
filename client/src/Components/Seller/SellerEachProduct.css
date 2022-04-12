@@ -1,0 +1,78 @@
+.SellerEachProduct {
+  width: 100%;
+  display: flex;
+  margin: 50px auto;
+  padding: 20px 10px;
+  border-radius: 10px;
+  transition: 0.2s ease;
+  box-shadow: 0px 0px 30px 0px rgb(240,240,240);
+}
+
+.SEPImage {
+  width: 120px;
+  height: 130px;
+  border-radius: 5px;
+  margin-right: calc(5vw);
+  background-size: cover;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
+.SellerEachProdData {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.SEPMrpDiscount,
+.SEPUnitsRating {
+    display: flex;
+    justify-content: space-between;
+}
+
+.SEPRating,
+.SEPEdit {
+    display: flex;
+}
+
+.SEPName {
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.SEPEdit {
+    max-width: 175px;
+    margin-top: 20px;
+    background-color: rgb(240,240,240);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 0px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid gainsboro;
+    font-weight: bolder;
+}
+
+.SEPEdit p {
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 450px) {
+  .SEPImage {
+    width: 110px;
+    height: 120px;
+  }
+  .SellerEachProdData {
+      font-size: 14px;
+  }
+  .SellerEachProduct {
+      box-shadow: 0px 0px 20px 0px rgb(230,230,230);
+  }
+  .SEPEdit {
+      width: 150px;
+  }
+}

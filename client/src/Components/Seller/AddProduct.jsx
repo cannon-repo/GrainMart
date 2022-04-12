@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./AddProduct.css";
 import { categories } from "../../Assets/Data/CategoryList";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import { toggle } from "../../Redux/ProductsSlice";
 
 const AddProduct = ({ trigger }) => {
+
+  const dispatch = useDispatch();
+
   const sellerId = useSelector((state) => state.userData.sellerId);
 
   const [name, setName] = useState('');
@@ -35,10 +39,12 @@ const AddProduct = ({ trigger }) => {
       headers: { "content-type": "multipart/form-data" },
     };
     axios
-      .post("http://localhost:5000/api/seller/addproduct", formData, config)
+      .post("/api/seller/addproduct", formData, config)
       .then((res) => res.data)
       .then((data) => {
         console.log(data);
+        trigger(false);
+        dispatch(toggle());
       })
       .catch((err) => console.log(err));
   };

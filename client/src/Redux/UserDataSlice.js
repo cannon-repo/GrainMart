@@ -9,6 +9,7 @@ const UserDataSlice = createSlice({
         isSeller: false,
         sellerName: '',
         sellerId: '',
+        products: [],
     },
     reducers: {
         setUser: (state,payload) => {
@@ -30,8 +31,13 @@ const UserDataSlice = createSlice({
             state.sellerId = '';
             state.sellerName = '';
         },
+        resetSellerInfo: (state) => {
+            state.isSeller = false;
+            state.sellerId = '';
+            state.sellerName = '';
+        },
     }
 });
 
-export const {setUser, resetUser, setSellerInfo} = UserDataSlice.actions;
+export const {setUser, resetUser, setSellerInfo, resetSellerInfo} = UserDataSlice.actions;
 export default UserDataSlice.reducer;
