@@ -5,12 +5,13 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  overflow-x: hidden;
 }
 
 .ShrinkedCategory {
   position: fixed;
   width: 100%;
-  height: 50px;
+  height: auto;
   display: flex;
   padding: 0px 10px;
   justify-content: space-between;
@@ -87,7 +88,7 @@
   font-weight: bold;
 }
 
-.EachBlock:hover{
+.EachBlock:hover {
   color: dodgerblue;
 }
 
@@ -236,7 +237,7 @@
   }
   .AddToCard,
   .AddToWishList {
-      font-size: 18px;
+    font-size: 18px;
   }
 }
 
@@ -268,7 +269,7 @@
   }
   .AddToCard,
   .AddToWishList {
-      font-size: 16px;
+    font-size: 16px;
   }
 }
 
@@ -290,7 +291,35 @@
 
 .ShopEmpty p {
   font-weight: bolder;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-size: 18px;
   color: #999;
+}
+
+.ShrinkedSubCategory {
+  width: 200px;
+  height: auto;
+  position: absolute;
+  margin-top: 50px;
+  background-color: #fff;
+  z-index: 9;
+  border-radius: 5px;
+  border: 1px solid gainsboro;
+}
+
+.ShrinkedSubCategory p {
+  width: 100%;
+  height: 40px;
+  border-bottom: 1px solid gainsboro;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0px 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #000;
+}
+
+.ShrinkedSubCategory p:hover {
+  background-color: rgb(240,240,240);
 }
