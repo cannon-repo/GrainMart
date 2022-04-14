@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import "./SubCategoryOverlay.css";
 
 const SubCategoryOverlay = ({data}) => {
@@ -6,7 +7,7 @@ const SubCategoryOverlay = ({data}) => {
     <div className='SubCategoryOverlay'>
       {
         data.map((val,index) => {
-          return <p key={index} className="EachSubCategory">{val}</p>
+          return <NavLink to={`/shop/${val}`}><p key={index} className="EachSubCategory">{val}</p></NavLink>
         })
       }
     </div>

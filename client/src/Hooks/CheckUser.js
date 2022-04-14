@@ -8,7 +8,7 @@ const useCheckUser = () => {
     const success = useRef(false);
 
     useEffect(() => {
-        fetch('api/user/loggedUser').then((res) => res.json()).then((data) => {
+        fetch('/api/user/loggedUser').then((res) => res.json()).then((data) => {
             if (data.success) {
                 // console.log('Data from checkUser Hook',data);
                 dispatch(setUser({ name: data.msg.Name, userId: data.msg.UserId, isSeller: data.msg.IsSeller }));
@@ -20,7 +20,7 @@ const useCheckUser = () => {
             }
         }).catch((err) => console.log(err));
     }, [dispatch, hasUser]);
-    return success.current;
+    return success.current === true ? true : false;
 }
 
 export default useCheckUser;

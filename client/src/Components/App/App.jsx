@@ -29,7 +29,7 @@ const App = () => {
     <div className='Screen'>
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/shop" element={<Shop/>}/>
+        <Route path="/shop/:category" element={<Shop/>}/>
         <Route path="/register" element={<Register/>} /> {/* same as login */}
         <Route path="/login" element={<Login/>} /> {/* if user is loggedin nothing happens and user stays on that page only and not redirected to login */}
         <Route path="/cart" element={hasUser || localStorage.getItem('loggedin') ? <CartScreen /> : <Login/>} />

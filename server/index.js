@@ -5,6 +5,7 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const UserRoutes = require("./Routes/UserRoutes");
 const SellerRoutes = require("./Routes/SellerRoutes");
+const ProductRoutes = require("./Routes/ProductRoutes");
 
 dotenv.config();
 
@@ -25,3 +26,4 @@ app.use(express.urlencoded({extended: false}));
 
 app.use('/api/user', UserRoutes);
 app.use('/api/seller', SellerRoutes);
+app.use('/api/product', ProductRoutes);

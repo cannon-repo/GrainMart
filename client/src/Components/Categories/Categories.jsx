@@ -24,7 +24,7 @@ const Categories = () => {
       {categories.map((data, index) => {
         return (
           <div className="EachCategoryItemWrap" key={index}>
-            <NavLink onClick={(e) => clickHandler(e,data.hasSubCategory)} to="/shop" style={{ textDecoration: "none" }} key={index}>
+            <NavLink onClick={(e) => clickHandler(e,data.hasSubCategory)} to={`/shop/${data.name}`} style={{ textDecoration: "none" }} key={index}>
               <div className="EachCategoryItem">
                 <img
                   className="EachCategoryItemImg"
