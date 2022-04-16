@@ -7,7 +7,7 @@ const SubCategoryOverlay = ({data}) => {
     <div className='SubCategoryOverlay'>
       {
         data.map((val,index) => {
-          return <NavLink to={`/shop/${val}`}><p key={index} className="EachSubCategory">{val}</p></NavLink>
+          return <NavLink key={index} to={`/shop/${val}`}><p className="EachSubCategory">{val}</p></NavLink>
         })
       }
     </div>

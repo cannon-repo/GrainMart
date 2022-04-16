@@ -8,12 +8,18 @@ import useCheckUser from "../../Hooks/CheckUser";
 import { useParams } from "react-router-dom";
 import NoProduct from "../../Assets/Images/no-product.png";
 import SubCategory from "./SubCategory";
+import { useSelector } from "react-redux";
 
 const Shop = () => {
   const params = useParams();
   useCheckUser();
 
+  const hasUser = useSelector((state) => state.userData.hasUser);
+  const userId = useSelector((state) => state.userData.userId);
+
   const [products, setProducts] = useState([]);
+  const [wishlist, setWishlist] = useState([]);
+  const [wishlistToggle, setWishlistToggle] = useState(true);
 
   useEffect(() => {
     fetch(`/api/product/${params.category}`)
@@ -24,9 +30,29 @@ const Shop = () => {
       .catch((err) => console.log(err));
   }, [params.category]);
 
+  useEffect(() => {
+    if(hasUser || localStorage.getItem("loggedin") === true) {
+      fetch(`/api/user/getuserwishlist/${userId}`).then((res) => res.json()).then((data) => {
+        setWishlist(data.data);
+      }).catch((err) => console.log(err));
+    }
+    return;
+  }, [hasUser, userId, wishlistToggle]);
+
   const [subCatDisplay, setSubCatDisplay] = useState(false);
   const [yoffset,setYoffset] = useState(0);
   const [subCatItems, setSubCatItems] = useState([]);
+
+  const isWishlisted = (prodId) => {
+    if(!wishlist || wishlist.length === 0) {
+      return false;
+    }
+    const res = wishlist.filter((val) => val.ProductId === prodId);
+    if(res.length > 0) {
+      return true;
+    }
+    return false;
+  }
 
   return (
     <div className="ShopWrap">
@@ -40,10 +66,11 @@ const Shop = () => {
               return (
                 <ProductCard
                   key={index}
-                  url={val.Image}
-                  name={val.Name}
-                  mrp={val.Price}
-                  offer={val.Offer}
+                  productId={val._id}
+                  data={val}
+                  wishlisted={isWishlisted(val._id)}
+                  setWishlistToggle={setWishlistToggle}
+                  wishlistToggle={wishlistToggle}
                 />
               );
             })}
@@ -60,4 +87,4 @@ const Shop = () => {
   );
 };
 
-export default Shop;
+export default React.memo(Shop);

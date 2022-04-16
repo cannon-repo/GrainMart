@@ -1,16 +1,36 @@
 import React from "react";
-import { MdAddShoppingCart, MdOutlineFavoriteBorder } from "react-icons/md";
+import { MdAddShoppingCart, MdOutlineFavoriteBorder, MdFavorite } from "react-icons/md";
 import {AiFillStar} from "react-icons/ai";
+import useCheckUser from "../../Hooks/CheckUser";
+import { useSelector } from "react-redux";
 
 const ProductCard = (props) => {
 
-  const serverHost = "http://192.168.18.8:5000/public/images/";
+  useCheckUser();
+
+  const UserId = useSelector((state) => state.userData.userId);
+  const hasUser = useSelector((state) => state.userData.hasUser);
+
+  const serverHost = "http://192.168.42.169:5000/public/images/";
 
   const calcOfferPrice = () => {
-    const mrp = props.mrp;
-    const off = props.offer;
+    const mrp = props.data.Price;
+    const off = props.data.Offer;
     const offerPrice = Math.ceil(mrp - ((mrp*off)/100));
     return offerPrice;
+  }
+
+  const addToWishlistHandler = () => {
+    if(hasUser || localStorage.getItem("loggedin") === true) {
+      fetch(props.wishlisted ? '/api/user/deletewishlist' : '/api/user/addwishlist', {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({UserId,ProductId: props.productId, Category: props.data.Category, Name: props.data.Name, Price: props.data.Price, Offer: props.data.Offer, Image: props.data.Image, SellerId: props.data.SellerId}),
+      }).then((res) => res.json()).then((data) => {
+        props.setWishlistToggle(!props.wishlistToggle);
+      }).catch((err) => console.log('Error from wishlistHandler' + err));
+    }
+    return;
   }
 
   return (
@@ -19,21 +39,24 @@ const ProductCard = (props) => {
         <img
           alt=""
           className="ProductImage"
-          src={serverHost + props.url}
+          src={serverHost + props.data.Image}
         />
         <div className="ProductInfoWrap">
-          <p className="ProductName">{props.name}</p>
+          <p className="ProductName">{props.data.Name}</p>
           <div className="PriceAndRatingWrap">
-          <p className="ProductPrice">₹{calcOfferPrice()}&nbsp;&nbsp;<span style={{color: '#999', textDecoration: 'line-through'}}>₹{props.mrp}</span>&nbsp;&nbsp;<span style={{color: 'var(--green)'}}>{props.offer}%&nbsp;off</span></p>
+          <p className="ProductPrice">₹{calcOfferPrice()}&nbsp;&nbsp;<span style={{color: '#999', textDecoration: 'line-through'}}>₹{props.data.Price}</span>&nbsp;&nbsp;<span style={{color: 'var(--green)'}}>{props.data.Offer}%&nbsp;off</span></p>
           <p className="ProductRating">5<AiFillStar/></p>
           </div>
         </div>
         <div className="ProductActions">
-          <div className="AddToCard">
+          <div className="AddToCart">
             <MdAddShoppingCart />
           </div>
-          <div className="AddToWishList">
-            <MdOutlineFavoriteBorder />
+          <div className="AddToWishList" onClick={addToWishlistHandler}>
+            {
+              props.wishlisted ? <MdFavorite style={{color: 'red'}}/> :
+              <MdOutlineFavoriteBorder />
+            }
           </div>
         </div>
       </div>
@@ -41,4 +64,4 @@ const ProductCard = (props) => {
   );
 };
 
-export default ProductCard;
+export default React.memo(ProductCard);

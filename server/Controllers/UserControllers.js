@@ -1,5 +1,6 @@
 const bcrypt = require("bcryptjs");
 const User = require("../Models/User");
+const UserData = require("../Models/UserData");
 const jwt = require("jsonwebtoken");
 
 module.exports.postRegister = async (req, res) => {
@@ -12,6 +13,7 @@ module.exports.postRegister = async (req, res) => {
         const salt = await bcrypt.genSalt();
         const newPwd = await bcrypt.hash(Pwd, salt);
         await User.create({ Name, UserId, Pwd: newPwd });
+        await UserData.create({UserId});
         res.status(200).json({success: true, msg: 'User registered successfully'});
     } catch (err) {
         res.status(400).json({success: false, msg:'Error from postRegister'});

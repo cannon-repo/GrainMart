@@ -1,9 +1,10 @@
 import React from "react";
 import "./SellerEachProduct.css";
 import {MdEdit} from "react-icons/md";
+import {AiFillStar} from "react-icons/ai";
 
 const SellerEachProduct = ({ product }) => {
-  const serverHost = "http://192.168.18.8:5000/public/images/";
+  const serverHost = "http://192.168.42.169:5000/public/images/";
 
   const calcDiscountPrice = (mrp = product.Price, offer = product.Offer) => {
       const sellPrice = Math.ceil(mrp - ((mrp*offer)/100));
@@ -24,7 +25,7 @@ const SellerEachProduct = ({ product }) => {
             <p>Units&nbsp;Sold:&nbsp;10</p>
             <div style={{width: '40%', display: 'flex', alignItems: 'center'}} className="SEPRating">
                 <p>Rating:</p>&nbsp;
-                <p style={{backgroundColor: 'var(--green)', padding: '3px 0px', fontSize: '12px', fontWeight: 'bolder', color: '#fff', borderRadius: '4px', width: '35px', textAlign: 'center', fontFamily: 'Montserrat'}}>4.1</p>
+                <p style={{backgroundColor: 'var(--green)', padding: '3px 0px', fontSize: '12px', fontWeight: 'bolder', color: '#fff', borderRadius: '4px', width: '35px', textAlign: 'center', fontFamily: 'Montserrat', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>4.1<AiFillStar/></p>
             </div>
           </div>
           <div className="SEPEdit">

@@ -115,16 +115,15 @@
   height: 290px;
   display: flex;
   flex-direction: column;
-  border-radius: 5px;
+  border-radius: 10px;
   overflow: hidden;
   transition: 0.2s ease;
-  border: 1px solid gainsboro;
   cursor: pointer;
   margin: 0px 10px;
 }
 
 .ProductCard:hover {
-  transform: translateY(-5px);
+  transform: translateY(-1px);
   box-shadow: 0px 0px 10px 0px gainsboro;
 }
 
@@ -192,7 +191,7 @@
   border-top: 1px solid gainsboro;
 }
 
-.AddToCard,
+.AddToCart,
 .AddToWishList {
   width: 35px;
   height: 35px;
@@ -204,7 +203,7 @@
   transition: all 0.25s ease;
 }
 
-.AddToCard:hover,
+.AddToCart:hover,
 .AddToWishList:hover {
   background-color: rgb(230, 230, 230);
 }
@@ -235,7 +234,7 @@
   .ProductRating {
     font-size: 13px;
   }
-  .AddToCard,
+  .AddToCart,
   .AddToWishList {
     font-size: 18px;
   }
@@ -267,7 +266,7 @@
   .ProductRating {
     font-size: 12px;
   }
-  .AddToCard,
+  .AddToCart,
   .AddToWishList {
     font-size: 16px;
   }
