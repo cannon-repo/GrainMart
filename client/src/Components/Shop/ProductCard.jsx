@@ -2,9 +2,13 @@ import React from "react";
 import { MdAddShoppingCart, MdOutlineFavoriteBorder, MdFavorite } from "react-icons/md";
 import {AiFillStar} from "react-icons/ai";
 import useCheckUser from "../../Hooks/CheckUser";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import {BsCartCheckFill} from "react-icons/bs";
+import { toggle } from "../../Redux/CartSlice";
 
 const ProductCard = (props) => {
+
+  const dispatch = useDispatch();
 
   useCheckUser();
 
@@ -32,6 +36,20 @@ const ProductCard = (props) => {
     }
     return;
   }
+  
+  const addToCartHandler = () => {
+    if(hasUser || localStorage.getItem("loggedin") === true) {
+      fetch(props.isInCart ? '/api/user/deletecartitems' : '/api/user/addcartitems', {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({UserId,ProductId: props.productId, Category: props.data.Category, Name: props.data.Name, Price: props.data.Price, Offer: props.data.Offer, Image: props.data.Image, SellerId: props.data.SellerId}),
+      }).then((res) => res.json()).then((data) => {
+        props.setCartToggle(!props.cartToggle);
+        dispatch(toggle());
+      }).catch((err) => console.log('Error from cartHandler' + err));
+    }
+    return;
+  }
 
   return (
     <div className="ProductCardWrap">
@@ -49,8 +67,10 @@ const ProductCard = (props) => {
           </div>
         </div>
         <div className="ProductActions">
-          <div className="AddToCart">
-            <MdAddShoppingCart />
+          <div className="AddToCart" onClick={addToCartHandler}>
+            {
+              props.isInCart ? <BsCartCheckFill style={{color: 'var(--green'}}/> : <MdAddShoppingCart />
+            }
           </div>
           <div className="AddToWishList" onClick={addToWishlistHandler}>
             {

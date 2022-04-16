@@ -20,6 +20,8 @@ const Shop = () => {
   const [products, setProducts] = useState([]);
   const [wishlist, setWishlist] = useState([]);
   const [wishlistToggle, setWishlistToggle] = useState(true);
+  const [cart, setCart] = useState([]);
+  const [cartToggle, setCartToggle] = useState(true);
 
   useEffect(() => {
     fetch(`/api/product/${params.category}`)
@@ -39,6 +41,15 @@ const Shop = () => {
     return;
   }, [hasUser, userId, wishlistToggle]);
 
+  useEffect(() => {
+    if(hasUser || localStorage.getItem("loggedin") === true) {
+      fetch(`/api/user/getusercart/${userId}`).then((res) => res.json()).then((data) => {
+        setCart(data.data);
+      }).catch((err) => console.log(err));
+    }
+    return;
+  }, [hasUser, userId, cartToggle]);
+
   const [subCatDisplay, setSubCatDisplay] = useState(false);
   const [yoffset,setYoffset] = useState(0);
   const [subCatItems, setSubCatItems] = useState([]);
@@ -48,6 +59,17 @@ const Shop = () => {
       return false;
     }
     const res = wishlist.filter((val) => val.ProductId === prodId);
+    if(res.length > 0) {
+      return true;
+    }
+    return false;
+  }
+
+  const isInCart = (prodId) => {
+    if(!cart || cart.length === 0) {
+      return false;
+    }
+    const res = cart.filter((val) => val.ProductId === prodId);
     if(res.length > 0) {
       return true;
     }
@@ -71,6 +93,9 @@ const Shop = () => {
                   wishlisted={isWishlisted(val._id)}
                   setWishlistToggle={setWishlistToggle}
                   wishlistToggle={wishlistToggle}
+                  isInCart={isInCart(val._id)}
+                  setCartToggle={setCartToggle}
+                  cartToggle={cartToggle}
                 />
               );
             })}
