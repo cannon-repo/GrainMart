@@ -1,18 +1,39 @@
 import React, { useEffect, useState } from "react";
+import {useDispatch, useSelector} from "react-redux";
+import { toggle } from "../../Redux/CartSlice";
 
-const CartList = ({ data }) => {
+const CartList = ({product}) => {
 
-  const [itemQty, setItemQty] = useState(1);
+  const dispatch = useDispatch();
+
+  const [itemQty, setItemQty] = useState(product.Quantity);
   const [decBtnState, setDecBtnState] = useState('transparent');
 
+  // const CartToggle = useSelector((state) => state.cartData.CartToggle);
+
+  const UserId = useSelector((state) => state.userData.userId);
+
+  const updateProductQuantity = (qty) => {
+    fetch('/api/user/updatecartproductqty', {
+      method: "POST",
+      headers: {"Content-Type" : "application/json"},
+      body: JSON.stringify({UserId, ProductId: product.ProductId, Quantity: qty})
+    }).then((res) => res.json()).then((data) => {
+        // console.log('Updated data',data);
+        dispatch(toggle());
+    }).catch((err) => console.log(err));
+  }
+  
   const decHandler = () => {
     if(itemQty > 1) {
+      updateProductQuantity(itemQty-1);
       setItemQty(itemQty-1);
     }
     return;
   }
   
   const incHandler = () => {
+    updateProductQuantity(itemQty+1);
     setItemQty(itemQty+1);
   }
 
@@ -24,10 +45,29 @@ const CartList = ({ data }) => {
     }
   }, [itemQty]);
 
+  const serverHost = "http://192.168.42.169:5000/public/images/";
+
+  const calcOfferPrice = () => {
+    const mrp = product.Price;
+    const off = product.Offer;
+    const offerPrice = Math.ceil(mrp - ((mrp*off)/100));
+    return offerPrice;
+  }
+
+  const removeProductHandler = () => {
+    fetch('/api/user/deletecartitems', {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({UserId,ProductId: product.ProductId})
+    }).then((res) => res.json()).then((data) => {
+        dispatch(toggle());
+    }).catch((err) => console.log(err));
+  }
+
   return (
     <div className="CartList">
       <div className="ItemInfoLeft">
-        <img className="ItemImg" alt="item" src={`${data.img}`} />
+        <img className="ItemImg" alt="item" src={`${serverHost}${product.Image}`} />
         <div className="qtyCtr">
           <div className="dec" style={{backgroundColor: decBtnState}} onClick={decHandler}>-</div>
           <div className="qtyVal">{itemQty}</div>
@@ -36,17 +76,17 @@ const CartList = ({ data }) => {
       </div>
       <div className="ItemInfoRight">
         <div>
-          <p className="ItemName">{data.name}</p>
-          <p className="ItemSeller">Seller: {data?.seller ? data.seller : "xyz"}</p>
+          <p className="ItemName">{product.Name}</p>
+          <p className="ItemSeller">Seller: {product?.SellerId ? product.SellerId : "xyz"}</p>
         </div>
-        <p className="ItemPrice"><span style={{fontWeight: 'bolder'}}>₹{data.price - (data.price*10)/100}</span><span style={{marginLeft: '10px', textDecoration: 'line-through', color: '#999'}}>₹{data.price}</span><span style={{marginLeft: '10px', color: 'var(--green)', fontWeight: 'bolder'}}>10% Off</span></p>
+        <p className="ItemPrice"><span style={{fontWeight: 'bolder'}}>₹{calcOfferPrice()}</span><span style={{marginLeft: '10px', textDecoration: 'line-through', color: '#999'}}>₹{product.Price}</span><span style={{marginLeft: '10px', color: 'var(--green)', fontWeight: 'bolder'}}>{product.Offer}% Off</span></p>
         <div className="ItemActionBtn">
           <button style={{marginRight: '10px'}}>Add to Wishlist</button>
-          <button>Remove</button>
+          <button onClick={removeProductHandler}>Remove</button>
         </div>
       </div>
     </div>
   );
 };
 
-export default CartList;
+export default React.memo(CartList);

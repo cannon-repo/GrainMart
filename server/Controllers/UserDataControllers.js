@@ -58,6 +58,22 @@ module.exports.deleteUserCartItems = async (req,res,next) => {
     }
 }
 
+module.exports.updateCartProductQty = async (req,res,next) => {
+    const {UserId, ProductId, Quantity} = req.body;
+    console.log(ProductId, Quantity);
+    try {
+        const updatedCart = await UserData.findOneAndUpdate({UserId, 'Cart.ProductId' : ProductId}, {
+            $set: {
+                'Cart.$.Quantity': Quantity
+            }
+        });
+        res.status(200).json({msg: 'updated product quantity', data: updatedCart});
+    } catch(err) {
+        console.log('Error from updateCartProductQty' + err);
+        res.status(400).json('Error from updateCartProductQty' + err);
+    }
+}
+
 module.exports.getUserWishlist =  async(req,res,next) => {
     const {UserId} = req.params;
     try {

@@ -1,25 +1,58 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import useCheckUser from "../../Hooks/CheckUser";
 import CartListWrap from "./CartListWrap";
 import "./CartScreen.css";
 import CartValue from "./CartValue";
 
-const cartItems = [
-    {name: 'Carrot', price: '30', img: 'https://thumbs.dreamstime.com/b/orange-carrot-green-tops-vegetable-flat-style-172733644.jpg', qty: '1'},
-    {name: 'Mango', price: '200', img: 'https://florigen.co.ke/wp-content/uploads/fruit-mango-apple-02.jpg', qty: '1'},
-    {name: 'Chips', price: '80', img: 'https://www.bigbasket.com/media/uploads/p/l/40202281-2_6-lays-potato-chips-american-style-cream-onion-flavour-best-quality-crunchy.jpg', qty: '1'},
-    {name: 'Milk', price: '50', img: 'https://static.turbosquid.com/Preview/2019/02/26__22_40_08/Milky01.pngB09131D4-5B27-453C-9721-88B31F06E6D3Zoom.jpg', qty: '1'}
-]
-
 const CartScreen = () => {
+  useCheckUser();
+
+  const hasUser = useSelector((state) => state.userData.hasUser);
+  const userId = useSelector((state) => state.userData.userId);
+  const CartToggle = useSelector((state) => state.cartData.CartToggle);
+
+  const [cart, setCart] = useState([]);
+
+  useEffect(() => {
+    if (hasUser || localStorage.getItem("loggedin")) {
+      fetch(`/api/user/getusercart/${userId}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setCart(data.data);
+          // console.log('Cart',data.data);
+        })
+        .catch((err) => console.log(err));
+    } else {
+      setCart([]);
+    }
+  }, [hasUser, userId, CartToggle]);
+
   return (
     <div className="CartScreenWrap">
-        <p style={{fontSize: 'calc(15px + 0.5vw)', fontWeight: 'bold', textAlign: 'start', width: '100%', margin: '20px 0px'}}>My Items({cartItems.length})</p>
+      <p
+        style={{
+          fontSize: "calc(15px + 0.5vw)",
+          fontWeight: "bold",
+          textAlign: "start",
+          width: "100%",
+          margin: "20px 0px",
+        }}
+      >
+        My Items({cart.length})
+      </p>
       <div className="CartScreen">
-        <CartListWrap cartItems={cartItems}/>
-        <CartValue cartItems={cartItems} />
+        {cart.length > 0 ? (
+          <>
+            <CartListWrap cartItems={cart} />
+            <CartValue cartItems={cart} />
+          </>
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );
 };
 
-export default CartScreen;
+export default React.memo(CartScreen);

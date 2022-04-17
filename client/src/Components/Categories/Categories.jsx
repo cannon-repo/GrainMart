@@ -22,22 +22,38 @@ const Categories = () => {
     <div className="Categories">
       {categories.map((data, index) => (
         <div className="EachCategoryItemWrap" key={index}>
-          <NavLink
-            onClick={(e) => clickHandler(e, data.hasSubCategory)}
-            to={`/shop/${data.name}`}
-            style={{ textDecoration: "none" }}
-            key={index}
-          >
-            <div className="EachCategoryItem">
-              <img
-                className="EachCategoryItemImg"
-                alt={data.name}
-                src={require(`../../Assets/Images/Category/${data.imageName}.jpg`)}
-                style={{ width: `${eachHor}px` }}
-              />
-              <p className="EachCategoryItemTxt">{data.name}</p>
+          {!data.hasSubCategory ? (
+            <NavLink
+              onClick={(e) => clickHandler(e, data.hasSubCategory)}
+              to={`/shop/${data.name}`}
+              style={{ textDecoration: "none" }}
+            >
+              <div className="EachCategoryItem">
+                <img
+                  className="EachCategoryItemImg"
+                  alt={data.name}
+                  src={require(`../../Assets/Images/Category/${data.imageName}.jpg`)}
+                  style={{ width: `${eachHor}px` }}
+                />
+                <p className="EachCategoryItemTxt">{data.name}</p>
+              </div>
+            </NavLink>
+          ) : (
+            <div
+              onClick={(e) => clickHandler(e, data.hasSubCategory)}
+              style={{ textDecoration: "none" }}
+            >
+              <div className="EachCategoryItem">
+                <img
+                  className="EachCategoryItemImg"
+                  alt={data.name}
+                  src={require(`../../Assets/Images/Category/${data.imageName}.jpg`)}
+                  style={{ width: `${eachHor}px` }}
+                />
+                <p className="EachCategoryItemTxt">{data.name}</p>
+              </div>
             </div>
-          </NavLink>
+          )}
           {data.hasSubCategory && (
             <div
               className="SubCategoryOverlayWrap"

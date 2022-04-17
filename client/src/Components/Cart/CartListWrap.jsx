@@ -6,7 +6,7 @@ const CartListWrap = ({ cartItems }) => {
   return (
     <div className="CartListWrap">
       {cartItems.map((val, id) => {
-        return <CartList data={val} />;
+        return <CartList key={id} product={val} />;
       })}
       <div className="PlaceOrder">
         <div className="DeliveryNote">
@@ -24,4 +24,4 @@ const CartListWrap = ({ cartItems }) => {
   );
 };
 
-export default CartListWrap;
+export default React.memo(CartListWrap);

@@ -37,6 +37,8 @@ const Shop = () => {
       fetch(`/api/user/getuserwishlist/${userId}`).then((res) => res.json()).then((data) => {
         setWishlist(data.data);
       }).catch((err) => console.log(err));
+    } else {
+      setWishlist([]);
     }
     return;
   }, [hasUser, userId, wishlistToggle]);
@@ -46,6 +48,8 @@ const Shop = () => {
       fetch(`/api/user/getusercart/${userId}`).then((res) => res.json()).then((data) => {
         setCart(data.data);
       }).catch((err) => console.log(err));
+    } else {
+      setCart([]);
     }
     return;
   }, [hasUser, userId, cartToggle]);

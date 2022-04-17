@@ -54,11 +54,7 @@ const ProductCard = (props) => {
   return (
     <div className="ProductCardWrap">
       <div className="ProductCard">
-        <img
-          alt=""
-          className="ProductImage"
-          src={serverHost + props.data.Image}
-        />
+        <div className="ProductImage" style={{backgroundImage: `url(${serverHost}${props.data.Image})`}}></div>
         <div className="ProductInfoWrap">
           <p className="ProductName">{props.data.Name}</p>
           <div className="PriceAndRatingWrap">

@@ -21,6 +21,8 @@ router.post("/deletewishlist", UserDataController.deleteUserWishlistItems);
 
 router.post("/deletecartitems", UserDataController.deleteUserCartItems);
 
+router.post("/updatecartproductqty", UserDataController.updateCartProductQty);
+
 router.get("/getuserwishlist/:UserId", UserDataController.getUserWishlist);
 
 router.get("/getusercart/:UserId", UserDataController.getUserCart);

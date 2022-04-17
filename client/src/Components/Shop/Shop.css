@@ -120,6 +120,7 @@
   transition: 0.2s ease;
   cursor: pointer;
   margin: 0px 10px;
+  border: 1px solid gainsboro;
 }
 
 .ProductCard:hover {
@@ -131,10 +132,12 @@
   width: 220px;
   height: 200px;
   background-size: cover;
-  background-position: center center;
+  /* background-size: contain; */
+  background-position: center;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
   overflow: hidden;
+  border-bottom: 1px solid gainsboro;
 }
 
 .ProductInfoWrap,
@@ -321,4 +324,10 @@
 
 .ShrinkedSubCategory p:hover {
   background-color: rgb(240,240,240);
+}
+
+@media screen and (min-width: 900px) {
+  .Shop {
+    
+  }
 }
