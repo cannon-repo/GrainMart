@@ -13,8 +13,9 @@ const useFetchCartSize = () => {
             fetch(`/api/user/getusercart/${userId}`).then((res) => res.json()).then((data) => {
                 dispatch(setCartSize({size:(data.data).length}));
             }).catch((err) => console.log(err));
+        } else {
+            dispatch(setCartSize({size: 0}));
         }
-        return;
     }, [dispatch, CartToggle, userId, hasUser]);
 }
 

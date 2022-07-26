@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import "./UserAvatar.css";
 import {resetUser} from "../../Redux/UserDataSlice";
 import useCheckUser from '../../Hooks/CheckUser';
+import { NavLink } from 'react-router-dom';
 
 const UserAvatar = () => {
 
@@ -34,6 +35,7 @@ const UserAvatar = () => {
           </div>
           <div className="UserAvatarDropDown">
             <section>Profile</section>
+            <section><NavLink to="/wishlist" style={{textDecoration: 'none', textDecorationColor: '#000', color: '#000', width: '100%',height: '100%', display: 'flex', justifyContent: 'flex-start', alignItems: 'center'}}>Wishlist</NavLink></section>
             <section onClick={logoutClickHandler}>Logout</section>
           </div>
         </div>

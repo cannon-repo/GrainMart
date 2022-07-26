@@ -19,7 +19,6 @@ const CartList = ({product}) => {
       headers: {"Content-Type" : "application/json"},
       body: JSON.stringify({UserId, ProductId: product.ProductId, Quantity: qty})
     }).then((res) => res.json()).then((data) => {
-        // console.log('Updated data',data);
         dispatch(toggle());
     }).catch((err) => console.log(err));
   }
@@ -45,7 +44,7 @@ const CartList = ({product}) => {
     }
   }, [itemQty]);
 
-  const serverHost = "http://192.168.42.169:5000/public/images/";
+  const serverHost = "http://192.168.18.3:5000/public/images/";
 
   const calcOfferPrice = () => {
     const mrp = product.Price;
@@ -62,6 +61,24 @@ const CartList = ({product}) => {
     }).then((res) => res.json()).then((data) => {
         dispatch(toggle());
     }).catch((err) => console.log(err));
+  }
+
+
+
+
+  console.log('Product', product);
+
+  const addToWishlistHandler = () => {
+    // if(hasUser || localStorage.getItem("loggedin") === true) {
+    //   fetch(props.wishlisted ? '/api/user/deletewishlist' : '/api/user/addwishlist', {
+    //     method: "POST",
+    //     headers: {"Content-Type": "application/json"},
+    //     body: JSON.stringify({UserId,ProductId: props.productId, Category: props.data.Category, Name: props.data.Name, Price: props.data.Price, Offer: props.data.Offer, Image: props.data.Image, SellerId: props.data.SellerId}),
+    //   }).then((res) => res.json()).then((data) => {
+    //     props.setWishlistToggle(!props.wishlistToggle);
+    //   }).catch((err) => console.log('Error from wishlistHandler' + err));
+    // }
+    // return;
   }
 
   return (
@@ -81,7 +98,7 @@ const CartList = ({product}) => {
         </div>
         <p className="ItemPrice"><span style={{fontWeight: 'bolder'}}>₹{calcOfferPrice()}</span><span style={{marginLeft: '10px', textDecoration: 'line-through', color: '#999'}}>₹{product.Price}</span><span style={{marginLeft: '10px', color: 'var(--green)', fontWeight: 'bolder'}}>{product.Offer}% Off</span></p>
         <div className="ItemActionBtn">
-          <button style={{marginRight: '10px'}}>Add to Wishlist</button>
+          <button onClick={addToWishlistHandler} style={{marginRight: '10px'}}>Add to Wishlist</button>
           <button onClick={removeProductHandler}>Remove</button>
         </div>
       </div>

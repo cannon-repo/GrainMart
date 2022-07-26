@@ -36,7 +36,7 @@ module.exports.deleteUserWishlistItems = async (req,res,next) => {
                 'Wishlist': {ProductId}
             }
         });
-        res.status(200).json({msg: 'removed item from wishlist', data: updatedWishllist});
+        res.status(200).json({msg: 'removed item from wishlist', data: updatedWishllist.Wishlist});
     } catch(err) {
         console.log('Error from deleteUserWishlistItems' + err);
         res.status(400).json('Error from deleteUserWishlistItems' + err);
@@ -54,7 +54,7 @@ module.exports.deleteUserCartItems = async (req,res,next) => {
         res.status(200).json({msg: 'removed item from cart', data: updatedCart});
     } catch(err) {
         console.log('Error from deleteUserCart' + err);
-        res.status(400).json('Error from deleteUserCart' + err);
+        res.status(400).json({msg: 'Error from deleteUserCart' + err});
     }
 }
 
@@ -81,7 +81,7 @@ module.exports.getUserWishlist =  async(req,res,next) => {
         res.json({msg: 'Wishlist Fetched Successfully', data: userWishlist.Wishlist});
     } catch (err) {
         console.log('Error from getUserWishlist');
-        res.status(400).json('Error from getUserWishlist' + err);
+        res.status(400).json({msg: 'Error from getUserWishlist' + err});
     } 
 }
 
