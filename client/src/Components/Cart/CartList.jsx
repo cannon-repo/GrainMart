@@ -2,15 +2,14 @@ import React, { useEffect, useState } from "react";
 import {useDispatch, useSelector} from "react-redux";
 import { toggle } from "../../Redux/CartSlice";
 
-const CartList = ({product}) => {
+const CartList = ({product, wishlisted, flag, flagSwitch}) => {
 
   const dispatch = useDispatch();
 
   const [itemQty, setItemQty] = useState(product.Quantity);
   const [decBtnState, setDecBtnState] = useState('transparent');
 
-  // const CartToggle = useSelector((state) => state.cartData.CartToggle);
-
+  const hasUser = useSelector((state) => state.userData.hasUser);
   const UserId = useSelector((state) => state.userData.userId);
 
   const updateProductQuantity = (qty) => {
@@ -63,22 +62,17 @@ const CartList = ({product}) => {
     }).catch((err) => console.log(err));
   }
 
-
-
-
-  console.log('Product', product);
-
   const addToWishlistHandler = () => {
-    // if(hasUser || localStorage.getItem("loggedin") === true) {
-    //   fetch(props.wishlisted ? '/api/user/deletewishlist' : '/api/user/addwishlist', {
-    //     method: "POST",
-    //     headers: {"Content-Type": "application/json"},
-    //     body: JSON.stringify({UserId,ProductId: props.productId, Category: props.data.Category, Name: props.data.Name, Price: props.data.Price, Offer: props.data.Offer, Image: props.data.Image, SellerId: props.data.SellerId}),
-    //   }).then((res) => res.json()).then((data) => {
-    //     props.setWishlistToggle(!props.wishlistToggle);
-    //   }).catch((err) => console.log('Error from wishlistHandler' + err));
-    // }
-    // return;
+    if(hasUser || localStorage.getItem("loggedin") === true) {
+      fetch('/api/user/addwishlist', {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({UserId,ProductId: product.ProductId, Category: product.Category, Name: product.Name, Price: product.Price, Offer: product.Offer, Image: product.Image, SellerId: product.SellerId}),
+      }).then((res) => res.json()).then((data) => {
+        flagSwitch(!flag);
+      }).catch((err) => console.log('Error from wishlistHandler' + err));
+    }
+    return;
   }
 
   return (
@@ -98,7 +92,7 @@ const CartList = ({product}) => {
         </div>
         <p className="ItemPrice"><span style={{fontWeight: 'bolder'}}>₹{calcOfferPrice()}</span><span style={{marginLeft: '10px', textDecoration: 'line-through', color: '#999'}}>₹{product.Price}</span><span style={{marginLeft: '10px', color: 'var(--green)', fontWeight: 'bolder'}}>{product.Offer}% Off</span></p>
         <div className="ItemActionBtn">
-          <button onClick={addToWishlistHandler} style={{marginRight: '10px'}}>Add to Wishlist</button>
+          <button onClick={addToWishlistHandler} style={{marginRight: '10px'}} disabled={wishlisted}>Add to Wishlist</button>
           <button onClick={removeProductHandler}>Remove</button>
         </div>
       </div>
