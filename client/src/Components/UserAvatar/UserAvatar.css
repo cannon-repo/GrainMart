@@ -7,18 +7,13 @@
 }
 
 .UserAvatar{
-    width: 35px;
-    height: 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: orange;
-    box-shadow: inset 0px 0px 5px 0px orangered;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    text-transform: uppercase;
-    color: #fff;
-    font-weight: bolder;
     position: relative;
+    background-image: url(../../Assets/Images/useravatar.png);
+    background-size: cover;
+    background-position: center center;
 }
 
 .UserAvatarWrap:hover .UserAvatarDropDownWrap {
@@ -36,17 +31,19 @@
 }
 
 .UserAvatarDropDown{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     border-radius: 3px;
     background-color: var(--white);
     box-shadow: 0px 0px 10px 0px gainsboro;
 }
 
 .UserAvatarDropDown section {
-    padding: 15px 10px;
     font-weight: normal;
     font-size: 14px;
     color: #000;
-    transform: all 0.1s ease;
+    transform: all 0.15s ease;
 }
 
 .UserAvatarDropDown section:first-child {

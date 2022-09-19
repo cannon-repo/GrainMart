@@ -4,7 +4,7 @@ import {MdEdit} from "react-icons/md";
 import {AiFillStar} from "react-icons/ai";
 
 const SellerEachProduct = ({ product }) => {
-  const serverHost = "http://192.168.18.3:5000/public/images/";
+  const serverHost = "http://192.168.42.187:5000/public/images/";
 
   const calcDiscountPrice = (mrp = product.Price, offer = product.Offer) => {
       const sellPrice = Math.ceil(mrp - ((mrp*offer)/100));

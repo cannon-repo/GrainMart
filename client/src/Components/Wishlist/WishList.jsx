@@ -26,7 +26,7 @@ const WishList = () => {
       }).catch((err) => console.log(err));
   }, [userId, dispatch, toggle]);
 
-  const serverHost = "http://192.168.18.3:5000/public/images/";
+  const serverHost = "http://192.168.42.187:5000/public/images/";
 
   const calcOfferPrice = (mrp, off) => {
     const offerPrice = Math.ceil(mrp - ((mrp*off)/100));

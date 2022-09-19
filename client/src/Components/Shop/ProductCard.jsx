@@ -15,7 +15,7 @@ const ProductCard = (props) => {
   const UserId = useSelector((state) => state.userData.userId);
   const hasUser = useSelector((state) => state.userData.hasUser);
 
-  const serverHost = "http://192.168.18.3:5000/public/images/";
+  const serverHost = "http://192.168.42.187:5000/public/images/";
 
   const calcOfferPrice = () => {
     const mrp = props.data.Price;

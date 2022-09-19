@@ -1,0 +1,18 @@
+.InfoWrap {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.InfoField {
+    width: 100%;
+    border: 1px solid #ff0000;
+    padding: 15px 0px;
+    margin: 10px 0px;
+}
+
+.InfoField p {
+    font-size: 16px;
+    font-weight: bolder;
+}

@@ -43,7 +43,7 @@ const CartList = ({product, wishlisted, flag, flagSwitch}) => {
     }
   }, [itemQty]);
 
-  const serverHost = "http://192.168.18.3:5000/public/images/";
+  const serverHost = "http://192.168.42.187:5000/public/images/";
 
   const calcOfferPrice = () => {
     const mrp = product.Price;

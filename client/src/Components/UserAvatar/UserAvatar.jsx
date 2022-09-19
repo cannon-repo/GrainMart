@@ -28,15 +28,15 @@ const UserAvatar = () => {
 
   return (
       <div className="UserAvatarWrap">
-        <div className="UserAvatar">{user.userName ? user.userName[0] : ''}</div>
+        <div className="UserAvatar"></div>
         <div className="UserAvatarDropDownWrap">
           <div className="UserAvatarPtr">
             <span className="Ptr"></span>
           </div>
           <div className="UserAvatarDropDown">
-            <section>Profile</section>
-            <section><NavLink to="/wishlist" style={{textDecoration: 'none', textDecorationColor: '#000', color: '#000', width: '100%',height: '100%', display: 'flex', justifyContent: 'flex-start', alignItems: 'center'}}>Wishlist</NavLink></section>
-            <section onClick={logoutClickHandler}>Logout</section>
+            <section><NavLink to="/profile" style={{textDecoration: 'none', textDecorationColor: '#000', color: '#000', width: '100%',height: '100%', display: 'flex', justifyContent: 'flex-start', alignItems: 'center', padding: '15px 10px'}}>Profile</NavLink></section>
+            <section><NavLink to="/wishlist" style={{textDecoration: 'none', textDecorationColor: '#000', color: '#000', width: '100%',height: '100%', display: 'flex', justifyContent: 'flex-start', alignItems: 'center', padding: '15px 10px'}}>Wishlist</NavLink></section>
+            <section style={{padding: '15px 10px'}} onClick={logoutClickHandler}>Logout</section>
           </div>
         </div>
       </div>
